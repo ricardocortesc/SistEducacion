@@ -3,6 +3,7 @@ package com.example.sistemaedu.controller;
 import com.example.sistemaedu.bd.EstudianteJPA;
 import com.example.sistemaedu.bd.EstudianteORM;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -33,6 +34,17 @@ public class EstudianteController {
     public List<EstudianteORM> obtenerEstudiantesBD() {
         return estudianteJPA.findAll();
     }
+
+    @GetMapping(path = "/estudiantes/{id}")
+    public EstudianteDTO obtenerEstudiante(@PathVariable String codigo) {
+        for (EstudianteDTO estudiante : estudiantes) {
+            if (estudiante.codigo().equals(codigo)) {
+                return estudiante;
+            }
+        }
+        return null;
+    }
+
 
     @PutMapping(path = "/estudiante/{id}")
     public String actualizarEstudiante(@PathVariable Long id, @RequestBody EstudianteDTO estudiante){
