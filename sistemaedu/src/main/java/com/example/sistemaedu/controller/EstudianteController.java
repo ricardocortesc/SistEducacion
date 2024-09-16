@@ -36,13 +36,10 @@ public class EstudianteController {
     }
 
     @GetMapping(path = "/estudiantes/{id}")
-    public EstudianteDTO obtenerEstudiante(@PathVariable String codigo) {
-        for (EstudianteDTO estudiante : estudiantes) {
-            if (estudiante.codigo().equals(codigo)) {
-                return estudiante;
-            }
-        }
-        return null;
+    public EstudianteDTO obtenerEstudiante(@PathVariable Long id) {
+        return estudianteJPA.findById(id)
+                .map(estudianteORM -> new EstudianteDTO(estudianteORM.getId(), estudianteORM.getNombre(), estudianteORM.getGenero(), estudianteORM.getEdad(), estudianteORM.getCarrera(), estudianteORM.getEmail(), estudianteORM.getSemestre(), estudianteORM.getPromedio()))
+                .orElse(null);
     }
 
 

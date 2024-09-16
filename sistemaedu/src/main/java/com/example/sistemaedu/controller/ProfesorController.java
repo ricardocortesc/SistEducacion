@@ -50,6 +50,13 @@ public class ProfesorController {
             return "Profesor no encontrado";
         }
     }
+
+    @GetMapping(path = "/profesores/{id}")
+    public ProfesorDTO obtenerProfesor(@PathVariable Long id) {
+        return profesorJPA.findById(id)
+                .map(profesorORM -> new ProfesorDTO(profesorORM.getId(), profesorORM.getNombre(), profesorORM.getGenero(), profesorORM.getEdad(), profesorORM.getDepartamento(), profesorORM.getCargo(), profesorORM.getEmail()))
+                .orElse(null);
+    }
     @DeleteMapping(path = "/profesorEliminado/{id}")
     public String eliminarProfesor(@PathVariable Long id) {
         profesorJPA.deleteById(id);
