@@ -1,8 +1,9 @@
 package com.example.sistemaedu.controller;
 
-import com.example.sistemaedu.bd.ProfesorORM;
-import com.example.sistemaedu.bd.ProfesorJPA;
+import com.example.sistemaedu.bd.ORM.ProfesorORM;
+import com.example.sistemaedu.bd.JPA.ProfesorJPA;
 
+import com.example.sistemaedu.controller.DTO.ProfesorDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

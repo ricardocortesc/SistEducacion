@@ -1,4 +1,4 @@
-package com.example.sistemaedu.bd;
+package com.example.sistemaedu.bd.ORM;
 
 import jakarta.persistence.*;
 import lombok.Data;
