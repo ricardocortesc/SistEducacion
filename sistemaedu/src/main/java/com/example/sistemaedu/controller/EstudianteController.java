@@ -1,9 +1,9 @@
 package com.example.sistemaedu.controller;
 
-import com.example.sistemaedu.bd.EstudianteJPA;
-import com.example.sistemaedu.bd.EstudianteORM;
+import com.example.sistemaedu.bd.JPA.EstudianteJPA;
+import com.example.sistemaedu.bd.ORM.EstudianteORM;
+import com.example.sistemaedu.controller.DTO.EstudianteDTO;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
