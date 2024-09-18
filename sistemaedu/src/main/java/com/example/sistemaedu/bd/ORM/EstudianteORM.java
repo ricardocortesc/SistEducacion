@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Table(name = "estudiante")
 @Entity
 @Data
@@ -32,6 +34,9 @@ public class EstudianteORM {
 
     @Column
     private float promedio;
+
+    @ManyToMany(mappedBy = "estudiantes")
+    private List<AsignaturaORM> asignaturas;
 
     public EstudianteORM( String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, float promedio) {
         this.nombre = nombre;

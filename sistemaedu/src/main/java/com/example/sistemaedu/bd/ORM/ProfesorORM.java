@@ -1,8 +1,11 @@
 package com.example.sistemaedu.bd.ORM;
 
+import com.example.sistemaedu.controller.AsignaturaController;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Table(name = "profesores")
 @Entity
@@ -29,6 +32,9 @@ public class ProfesorORM {
 
     @Column
     private String email;
+
+    @OneToMany(mappedBy = "profesor")
+    private List<AsignaturaORM> asignaturas;
 
     public ProfesorORM(String nombre, String genero, Integer edad, String departamento, String cargo, String email) {
         this.nombre = nombre;

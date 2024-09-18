@@ -27,12 +27,12 @@ public class ProfesorController {
         return "Profesor guardado";
     }
     @GetMapping(path = "/profesores-bd")
-    public List<ProfesorORM> obtenerEstudiantesBD() {
+    public List<ProfesorORM> obtenerProfesoresBD() {
         return profesorJPA.findAll();
     }
 
     @PutMapping(path = "/profesor/{id}")
-    public String actualizarEstudiante(@PathVariable Long id, @RequestBody ProfesorDTO profesor){
+    public String actualizarProfesor(@PathVariable Long id, @RequestBody ProfesorDTO profesor){
         ProfesorORM profesorExistente= profesorJPA.findById(id).orElse(null);
         if (profesorExistente != null){
             profesorExistente.setNombre(profesor.nombre());
