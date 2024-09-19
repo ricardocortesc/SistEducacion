@@ -33,8 +33,6 @@ public class ProfesorORM {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "profesor")
-    private List<AsignaturaORM> asignaturas;
 
     public ProfesorORM(String nombre, String genero, Integer edad, String departamento, String cargo, String email) {
         this.nombre = nombre;

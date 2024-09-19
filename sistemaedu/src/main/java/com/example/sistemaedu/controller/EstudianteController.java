@@ -18,11 +18,6 @@ public class EstudianteController {
 
     List<EstudianteDTO> estudiantes = new ArrayList<>();
 
-    @GetMapping(path = "/saludo")
-    public String saludar() {
-        return "Hola mundo";
-    }
-
 
     @PostMapping(path = "/estudiante")
     public String guardarEstudiante(@RequestBody EstudianteDTO estudiante) {

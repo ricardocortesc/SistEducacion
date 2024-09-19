@@ -16,24 +16,13 @@ public class AsignaturaORM {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String nombreAsignatura;
+    private String nombre;
 
-    @ManyToOne
-    @JoinColumn(name = "profesor_id")
-    private ProfesorORM profesor;
+    @Column
+    private Integer creditos;
 
-    @ManyToMany
-    @JoinTable(
-            name = "asignatura_estudiante",
-            joinColumns = @JoinColumn(name = "asignatura_id"),
-            inverseJoinColumns = @JoinColumn(name = "estudiante_id")
-    )
-    private List<EstudianteORM> estudiantes;
-
-    public AsignaturaORM(Long id, String nombreAsignatura, ProfesorORM profesor, List<EstudianteORM> estudiantes) {
-        this.id = id;
-        this.nombreAsignatura = nombreAsignatura;
-        this.profesor = profesor;
-        this.estudiantes = estudiantes;
+    public AsignaturaORM(String nombre, Integer creditos) {
+        this.nombre = nombre;
+        this.creditos = creditos;
     }
 }

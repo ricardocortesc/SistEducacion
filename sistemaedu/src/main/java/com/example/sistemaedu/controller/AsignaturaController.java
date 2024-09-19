@@ -1,16 +1,13 @@
 package com.example.sistemaedu.controller;
 
 import com.example.sistemaedu.bd.JPA.AsignaturaJPA;
-import com.example.sistemaedu.bd.JPA.EstudianteJPA;
-import com.example.sistemaedu.bd.JPA.ProfesorJPA;
 import com.example.sistemaedu.bd.ORM.AsignaturaORM;
-import com.example.sistemaedu.bd.ORM.EstudianteORM;
-import com.example.sistemaedu.bd.ORM.ProfesorORM;
+import com.example.sistemaedu.controller.DTO.AsignaturaDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -18,58 +15,51 @@ import java.util.Optional;
 public class AsignaturaController {
 
     private AsignaturaJPA asignaturaJPA;
-    private ProfesorJPA profesorJPA;
-    private EstudianteJPA estudianteJPA;
 
-    // Crear asignatura
+    List<AsignaturaDTO> asignaturas = new ArrayList<>();
+
     @PostMapping(path = "/asignatura")
-    public String crearAsignatura(@RequestBody AsignaturaORM asignatura) {
-        // Fetch existing entities for profesor and estudiantes
-        ProfesorORM profesor = profesorJPA.findById(asignatura.getProfesor().getId()).orElse(null);
-        List<EstudianteORM> estudiantes = estudianteJPA.findAllById(asignatura.getEstudiantes().stream().map(EstudianteORM::getId).toList());
-
-        if (profesor != null) {
-            asignatura.setProfesor(profesor);
-        }
-        asignatura.setEstudiantes(estudiantes);
-
-        asignaturaJPA.save(asignatura);
-        return "Asignatura creada";
+    public String guardarAsignatura(@RequestBody AsignaturaDTO asignatura) {
+        asignaturas.add(asignatura);
+        asignaturaJPA.save(new AsignaturaORM(asignatura.nombre(), asignatura.creditos()));
+        return "Asignatura guardada";
     }
 
-    // Obtener todas las asignaturas
-    @GetMapping(path = "/asignaturas")
-    public List<AsignaturaORM> obtenerAsignaturas() {
+    @GetMapping(path = "/asignaturas-bd")
+    public List<AsignaturaORM> obtenerAsignaturasBD() {
         return asignaturaJPA.findAll();
     }
 
-    // Obtener una asignatura por id
-    @GetMapping(path = "/asignatura/{id}")
-    public List<AsignaturaORM> obtenerAsignatura(@PathVariable Long id) {
-        return asignaturaJPA.findAll();
-
-    }
-
-    // Actualizar una asignatura
     @PutMapping(path = "/asignatura/{id}")
-    public String actualizarAsignatura(@PathVariable Long id, @RequestBody AsignaturaORM asignatura) {
-        if (asignaturaJPA.existsById(id)) {
-            asignatura.setId(id);
-            asignaturaJPA.save(asignatura);
-            return "Asignatura actualizada";
+    public String actualizarAsignatura(@PathVariable Long id, @RequestBody AsignaturaDTO asignatura) {
+        AsignaturaORM asignaturaExistente = asignaturaJPA.findById(id).orElse(null);
+        if (asignaturaExistente != null) {
+            asignaturaExistente.setNombre(asignatura.nombre());
+            asignaturaExistente.setCreditos(asignatura.creditos());
+
+            // Guardar los cambios en la base de datos
+            asignaturaJPA.save(asignaturaExistente);
+
+            return "Asignatura actualizada correctamente";
         } else {
             return "Asignatura no encontrada";
         }
     }
 
-    // Eliminar una asignatura por id
-    @DeleteMapping(path = "/asignatura/{id}")
+    @GetMapping(path = "/asignaturas/{id}")
+    public AsignaturaDTO obtenerAsignatura(@PathVariable Long id) {
+        return asignaturaJPA.findById(id)
+                .map(asignaturaORM -> new AsignaturaDTO(
+                        asignaturaORM.getId(),
+                        asignaturaORM.getNombre(),
+                        asignaturaORM.getCreditos()
+                ))
+                .orElse(null);
+    }
+
+    @DeleteMapping(path = "/asignaturaEliminada/{id}")
     public String eliminarAsignatura(@PathVariable Long id) {
-        if (asignaturaJPA.existsById(id)) {
-            asignaturaJPA.deleteById(id);
-            return "Asignatura eliminada";
-        } else {
-            return "Asignatura no encontrada";
-        }
+        asignaturaJPA.deleteById(id);
+        return "Asignatura eliminada";
     }
 }
