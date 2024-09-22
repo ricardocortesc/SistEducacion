@@ -34,25 +34,30 @@ public class ProfesorController {
     }
 
     @PutMapping(path = "/profesor/{id}")
-    public String actualizarProfesor(@PathVariable Long id, @RequestBody ProfesorDTO profesor){
-        ProfesorORM profesorExistente= profesorJPA.findById(id).orElse(null);
-        if (profesorExistente != null){
-            profesorExistente.setNombre(profesor.nombre());
-            profesorExistente.setGenero(profesor.genero());
-            profesorExistente.setEdad(profesor.edad());
-            profesorExistente.setDepartamento(profesor.departamento());
-            profesorExistente.setCargo(profesor.cargo());
-            profesorExistente.setEmail(profesor.email());
+    public String actualizarProfesor(@PathVariable Long id, @RequestBody ProfesorDTO profesorDTO) {
+        ProfesorORM profesorExistente = profesorJPA.findById(id).orElse(null);
 
+        if (profesorExistente != null) {
+            boolean resultado = profesorService.actualizarProfesor(
+                    id,
+                    profesorDTO.nombre(),
+                    profesorDTO.genero(),
+                    profesorDTO.edad(),
+                    profesorDTO.departamento(),
+                    profesorDTO.cargo(),
+                    profesorDTO.email()
+            );
 
-            // Guardar los cambios en la base de datos
-            profesorJPA.save(profesorExistente);
-
-            return "Profesor actualizado correctamente";
+            if (resultado) {
+                return "Profesor actualizado correctamente";
+            } else {
+                return "No se pudo actualizar en el profesor";
+            }
         } else {
             return "Profesor no encontrado";
         }
     }
+
 
     @GetMapping(path = "/profesores/{id}")
     public ProfesorDTO obtenerProfesor(@PathVariable Long id) {

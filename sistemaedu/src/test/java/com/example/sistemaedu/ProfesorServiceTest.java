@@ -2,6 +2,7 @@ package com.example.sistemaedu;
 
 import com.example.sistemaedu.bd.JPA.ProfesorJPA;
 import com.example.sistemaedu.bd.ORM.EstudianteORM;
+import com.example.sistemaedu.bd.ORM.ProfesorORM;
 import com.example.sistemaedu.logica.ProfesorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -41,25 +41,31 @@ public class EstudianteController {
 
 
     @PutMapping(path = "/estudiante/{id}")
-    public String actualizarEstudiante(@PathVariable Long id, @RequestBody EstudianteDTO estudiante){
+    public String actualizarEstudiante(@PathVariable Long id, @RequestBody EstudianteDTO estudianteDTO) {
         EstudianteORM estudianteExistente = estudianteJPA.findById(id).orElse(null);
-        if (estudianteExistente != null){
-            estudianteExistente.setNombre(estudiante.nombre());
-            estudianteExistente.setGenero(estudiante.genero());
-            estudianteExistente.setEdad(estudiante.edad());
-            estudianteExistente.setCarrera(estudiante.carrera());
-            estudianteExistente.setEmail(estudiante.email());
-            estudianteExistente.setSemestre(estudiante.semestre());
-            estudianteExistente.setPromedio(estudiante.promedio());
 
-            // Guardar los cambios en la base de datos
-            estudianteJPA.save(estudianteExistente);
+        if (estudianteExistente != null) {
+            boolean resultado = estudianteService.actualizarEstudiante(
+                    id,
+                    estudianteDTO.nombre(),
+                    estudianteDTO.genero(),
+                    estudianteDTO.edad(),
+                    estudianteDTO.carrera(),
+                    estudianteDTO.email(),
+                    estudianteDTO.semestre(),
+                    estudianteDTO.promedio()
+            );
 
-            return "Estudiante actualizado correctamente";
+            if (resultado) {
+                return "Estudiante actualizado correctamente";
+            } else {
+                return "No se pudieron realizar cambios en el estudiante";
+            }
         } else {
             return "Estudiante no encontrado";
         }
     }
+
     @DeleteMapping(path = "/estudianteEliminado/{id}")
     public String eliminarEstudiante(@PathVariable Long id) {
         estudianteJPA.deleteById(id);
