@@ -1,4 +1,4 @@
-package com.example.sistemaedu;
+package com.example.sistemaedu.logica;
 
 import com.example.sistemaedu.bd.JPA.EstudianteJPA;
 import com.example.sistemaedu.bd.ORM.EstudianteORM;
