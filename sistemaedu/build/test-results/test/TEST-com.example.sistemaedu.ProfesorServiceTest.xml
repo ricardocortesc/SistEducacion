@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.ProfesorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-22T21:36:52" hostname="MIGUELFEOPC" time="1.64">
+<testsuite name="com.example.sistemaedu.ProfesorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-22T22:26:03" hostname="MIGUELFEOPC" time="1.644">
   <properties/>
-  <testcase name="Given_emailExiste_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.ProfesorServiceTest" time="1.64"/>
+  <testcase name="When_actualizarProfesor_Then_returnTrue()" classname="com.example.sistemaedu.ProfesorServiceTest" time="1.644"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\mfeom\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
