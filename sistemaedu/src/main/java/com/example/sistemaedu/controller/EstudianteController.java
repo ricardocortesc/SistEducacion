@@ -3,6 +3,7 @@ package com.example.sistemaedu.controller;
 import com.example.sistemaedu.bd.JPA.EstudianteJPA;
 import com.example.sistemaedu.bd.ORM.EstudianteORM;
 import com.example.sistemaedu.controller.DTO.EstudianteDTO;
+import com.example.sistemaedu.logica.EstudianteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class EstudianteController {
 
     private EstudianteJPA estudianteJPA;
+    private EstudianteService estudianteService;
 
     List<EstudianteDTO> estudiantes = new ArrayList<>();
 
@@ -22,7 +24,7 @@ public class EstudianteController {
     @PostMapping(path = "/estudiante")
     public String guardarEstudiante(@RequestBody EstudianteDTO estudiante) {
         estudiantes.add(estudiante);
-        estudianteJPA.save(new EstudianteORM(estudiante.nombre(), estudiante.genero(), estudiante.edad(),estudiante.carrera(), estudiante.email(), estudiante.semestre(), estudiante.promedio()));
+        estudianteService.guardarEstudiante(estudiante.codigo(), estudiante.nombre(),estudiante.genero(), estudiante.edad(),estudiante.carrera(), estudiante.email(), estudiante.semestre(), estudiante.promedio());
         return "Estudiante guardado";
     }
     @GetMapping(path = "/estudiantes-bd")
