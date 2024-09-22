@@ -14,6 +14,13 @@ public class EstudianteService {
         if (promedio < 0 || promedio >5 ){
             throw new IllegalArgumentException("no se permite un promedio mayor a 5 o menor a 0");
         }
+        if (edad < 0 || edad >100 ){
+            throw new IllegalArgumentException("no se permite esa edad");
+        }
+        if (semestre < 0 || semestre >14 ){
+            throw new IllegalArgumentException("no se pueden tener mas de 14 semestres o menos de 0 semestres");
+        }
+
         EstudianteORM nuevoEstudiante =new EstudianteORM();
         nuevoEstudiante.setId(id);
         nuevoEstudiante.setNombre(nombre);
