@@ -20,6 +20,9 @@ public class EstudianteService {
         if (semestre < 0 || semestre >14 ){
             throw new IllegalArgumentException("no se pueden tener mas de 14 semestres o menos de 0 semestres");
         }
+        if(estudianteJPA.findByEmail(email).isPresent()){
+            throw new IllegalArgumentException("El email ya está registrado");
+        }
 
         EstudianteORM nuevoEstudiante =new EstudianteORM();
         nuevoEstudiante.setId(id);

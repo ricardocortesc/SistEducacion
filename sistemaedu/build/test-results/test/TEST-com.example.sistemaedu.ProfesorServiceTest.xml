@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.ProfesorServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2024-09-22T20:59:47" hostname="RICARDO" time="5.52">
+<testsuite name="com.example.sistemaedu.ProfesorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-22T21:36:52" hostname="MIGUELFEOPC" time="1.64">
   <properties/>
-  <testcase name="Given_edadInvalidaMenorA0_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.ProfesorServiceTest" time="5.52">
-    <failure message="org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
-	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
-	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	at app//org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
-	at app//com.example.sistemaedu.ProfesorServiceTest.Given_edadInvalidaMenorA0_When_guardarProfesor_Then_throwIllegalArgumentException(ProfesorServiceTest.java:24)
-	at java.base@21.0.4/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.4/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.4/java.util.ArrayList.forEach(ArrayList.java:1596)
-</failure>
-  </testcase>
+  <testcase name="Given_emailExiste_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.ProfesorServiceTest" time="1.64"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\rcort\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\mfeom\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
 WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
 WARNING: Dynamic loading of agents will be disallowed by default in a future release

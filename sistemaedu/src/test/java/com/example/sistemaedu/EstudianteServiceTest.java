@@ -1,6 +1,7 @@
 package com.example.sistemaedu;
 
 import com.example.sistemaedu.bd.JPA.EstudianteJPA;
+import com.example.sistemaedu.bd.ORM.EstudianteORM;
 import com.example.sistemaedu.logica.EstudianteService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,11 +11,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class EstudianteServiceTest {
 
     @Mock
-    EstudianteJPA EstudianteJPA;
+    EstudianteJPA estudianteJPA;
 
     @InjectMocks
     EstudianteService service;
@@ -62,9 +67,22 @@ class EstudianteServiceTest {
     }
 
     @Test
+    void Given_emailExistente_When_guardarEstudiante_Then_throwIllegalArgumentException() {
+        // Arrange
+        String emailExistente = "pedro.gomez@correo.com";
+        when(estudianteJPA.findByEmail(emailExistente)).thenReturn(Optional.of(new EstudianteORM()));
+
+        // Act & Assert
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> service.guardarEstudiante(10L, "Plarci Rodriguez", "Masculino", 19, "Ingenieria de Sistemas", "pedro.gomez@correo.com", 8, 5.0f)
+        );
+    }
+
+
+    @Test
     void When_guardarEstudiante_Then_returnTrue() {
         boolean resultado = service.guardarEstudiante(10L, "Plarci Rodriguez", "Masculino", 18, "Ingenieria de Sistemas", "yarci@gmail.com", 12, 5.0f);
         Assertions.assertTrue(resultado);
-        Mockito.verify(EstudianteJPA).save(Mockito.any());
+        Mockito.verify(estudianteJPA).save(Mockito.any());
     }
 }

@@ -1,6 +1,7 @@
 package com.example.sistemaedu;
 
 import com.example.sistemaedu.bd.JPA.ProfesorJPA;
+import com.example.sistemaedu.bd.ORM.EstudianteORM;
 import com.example.sistemaedu.logica.ProfesorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,11 +11,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class ProfesorServiceTest {
 
     @Mock
-    ProfesorJPA ProfesorJPA;
+    ProfesorJPA profesorJPA;
 
     @InjectMocks
     ProfesorService service;
@@ -22,21 +27,31 @@ class ProfesorServiceTest {
     @Test
     void Given_edadInvalidaMenorA0_When_guardarProfesor_Then_throwIllegalArgumentException() {
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> service.guardarProfesor(10L, "Maigol Rodriguez", "Masculino", 20, "Ingenieria", "Planta", "maigol@gmail.com")
+                () -> service.guardarProfesor(3L, "Maigol Rodriguez", "Masculino", -3, "Ingenieria", "Planta", "maigol@gmail.com")
         );
     }
 
     @Test
     void Given_edadInvalidoMayorA100_When_guardarProfesor_Then_throwIllegalArgumentException() {
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> service.guardarProfesor(10L, "Maigol Rodriguez", "Masculino", 20, "Ingenieria","Planta" ,"maigol@gmail.com" )
+                () -> service.guardarProfesor(3L, "Maigol Rodriguez", "Masculino", 109, "Ingenieria","Planta" ,"maigol@gmail.com" )
         );
     }
 
     @Test
-    void When_guardarEstudiante_Then_returnTrue() {
-        boolean resultado = service.guardarProfesor(10L, "Maigol Rodriguez", "Masculino", 18, "Ingenieria","Planta" ,"maigol@gmail.com" );
+    void Given_emailExiste_When_guardarProfesor_Then_throwIllegalArgumentException() {
+        String emailExistente = "prueba@gmail.com";
+        when(profesorJPA.findByEmail(emailExistente)).thenReturn(Optional.of(new EstudianteORM())); // Simula que el email ya existe
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> service.guardarProfesor(3L, "Maigol Rodriguez", "Masculino", 19, "Ingenieria", "Planta", "prueba@gmail.com")
+        );
+    }
+
+
+    @Test
+    void When_guardarProfesor_Then_returnTrue() {
+        boolean resultado = service.guardarProfesor(3L, "Maigol Rodriguez", "Masculino", 18, "Ingenieria","Planta" ,"maigol@gmail.com" );
         Assertions.assertTrue(resultado);
-        Mockito.verify(ProfesorJPA).save(Mockito.any());
+        Mockito.verify(profesorJPA).save(Mockito.any());
     }
 }

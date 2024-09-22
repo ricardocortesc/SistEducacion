@@ -14,6 +14,9 @@ public class ProfesorService {
         if (edad < 0 || edad >100 ){
             throw new IllegalArgumentException("no se permite una edad negativa o mayor a 100");
         }
+        if(profesorJPA.findByEmail(email).isPresent()){
+            throw new IllegalArgumentException("El email ya está registrado");
+        }
         ProfesorORM nuevoProfesor =new ProfesorORM();
         nuevoProfesor.setId(id);
         nuevoProfesor.setNombre(nombre);
