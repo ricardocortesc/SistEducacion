@@ -4,6 +4,7 @@ import com.example.sistemaedu.bd.ORM.ProfesorORM;
 import com.example.sistemaedu.bd.JPA.ProfesorJPA;
 
 import com.example.sistemaedu.controller.DTO.ProfesorDTO;
+import com.example.sistemaedu.logica.ProfesorService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,14 @@ public class ProfesorController {
 
     private ProfesorJPA profesorJPA;
 
+    private ProfesorService profesorService;
     List<ProfesorDTO> profesores = new ArrayList<>();
 
 
     @PostMapping(path = "/profesor")
     public String guardarProfesor(@RequestBody ProfesorDTO profesor) {
         profesores.add(profesor);
-        profesorJPA.save(new ProfesorORM(profesor.nombre(), profesor.genero(), profesor.edad(),profesor.departamento(), profesor.cargo(), profesor.email()));
+        profesorService.guardarProfesor(profesor.codigo(), profesor.nombre(), profesor.genero(), profesor.edad(), profesor.departamento(), profesor.cargo(), profesor.email());
         return "Profesor guardado";
     }
     @GetMapping(path = "/profesores-bd")
