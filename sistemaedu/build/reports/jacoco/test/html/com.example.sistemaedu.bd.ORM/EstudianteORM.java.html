@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EstudianteORM.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sistemaedu</a> &gt; <a href="index.source.html" class="el_package">com.example.sistemaedu.bd.ORM</a> &gt; <span class="el_source">EstudianteORM.java</span></div><h1>EstudianteORM.java</h1><pre class="source lang-java linenums">package com.example.sistemaedu.bd.ORM;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Table(name = &quot;estudiante&quot;)
+@Entity
+@Data
+@NoArgsConstructor
+public class EstudianteORM {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private String nombre;
+
+    @Column
+    private String genero;
+
+    @Column
+    private Integer edad;
+    @Column
+    private String carrera;
+
+    @Column
+    private String email;
+
+    @Column
+    private Integer semestre;
+
+    @Column
+    private float promedio;
+
+
+<span class="nc" id="L39">    public EstudianteORM( String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, float promedio) {</span>
+<span class="nc" id="L40">        this.nombre = nombre;</span>
+<span class="nc" id="L41">        this.genero = genero;</span>
+<span class="nc" id="L42">        this.edad = edad;</span>
+<span class="nc" id="L43">        this.carrera = carrera;</span>
+<span class="nc" id="L44">        this.email = email;</span>
+<span class="nc" id="L45">        this.semestre = semestre;</span>
+<span class="nc" id="L46">        this.promedio = promedio;</span>
+<span class="nc" id="L47">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
