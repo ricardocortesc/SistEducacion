@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EstudianteService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sistemaedu</a> &gt; <a href="index.source.html" class="el_package">com.example.sistemaedu.logica</a> &gt; <span class="el_source">EstudianteService.java</span></div><h1>EstudianteService.java</h1><pre class="source lang-java linenums">package com.example.sistemaedu.logica;
+
+import com.example.sistemaedu.bd.JPA.EstudianteJPA;
+import com.example.sistemaedu.bd.ORM.EstudianteORM;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+@AllArgsConstructor
+public class EstudianteService {
+
+    private final EstudianteJPA estudianteJPA;
+    public boolean guardarEstudiante(Long id,String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, Float promedio){
+<span class="fc bfc" id="L16" title="All 4 branches covered.">        if (promedio &lt; 0 || promedio &gt;5 ){</span>
+<span class="fc" id="L17">            throw new IllegalArgumentException(&quot;no se permite un promedio mayor a 5 o menor a 0&quot;);</span>
+        }
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (edad &lt; 0 || edad &gt;100 ){</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;no se permite esa edad&quot;);</span>
+        }
+<span class="pc bpc" id="L22" title="2 of 4 branches missed.">        if (semestre &lt; 0 || semestre &gt;14 ){</span>
+<span class="nc" id="L23">            throw new IllegalArgumentException(&quot;no se pueden tener mas de 14 semestres o menos de 0 semestres&quot;);</span>
+        }
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
+<span class="fc" id="L26">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
+        }
+
+<span class="fc" id="L29">        EstudianteORM nuevoEstudiante =new EstudianteORM();</span>
+<span class="fc" id="L30">        nuevoEstudiante.setId(id);</span>
+<span class="fc" id="L31">        nuevoEstudiante.setNombre(nombre);</span>
+<span class="fc" id="L32">        nuevoEstudiante.setGenero(genero);</span>
+<span class="fc" id="L33">        nuevoEstudiante.setEdad(edad);</span>
+<span class="fc" id="L34">        nuevoEstudiante.setCarrera(carrera);</span>
+<span class="fc" id="L35">        nuevoEstudiante.setEmail(email);</span>
+<span class="fc" id="L36">        nuevoEstudiante.setSemestre(semestre);</span>
+<span class="fc" id="L37">        nuevoEstudiante.setPromedio(promedio);</span>
+<span class="fc" id="L38">        estudianteJPA.save(nuevoEstudiante);</span>
+<span class="fc" id="L39">        return true;</span>
+    }
+
+    public boolean actualizarEstudiante(Long id, String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, Float promedio) {
+<span class="fc bfc" id="L43" title="All 4 branches covered.">        if (promedio &lt; 0 || promedio &gt; 5) {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;No se permite un promedio mayor a 5 o menor a 0&quot;);</span>
+        }
+<span class="fc bfc" id="L46" title="All 4 branches covered.">        if (edad &lt; 0 || edad &gt; 100) {</span>
+<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;No se permite esa edad&quot;);</span>
+        }
+<span class="fc bfc" id="L49" title="All 4 branches covered.">        if (semestre &lt; 0 || semestre &gt; 14) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;No se permiten mÃ¡s de 14 semestres o menos de 0 semestres&quot;);</span>
+        }
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
+<span class="fc" id="L53">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
+        }
+<span class="fc" id="L55">        Optional&lt;EstudianteORM&gt; estudianteExistente = estudianteJPA.findById(id);</span>
+
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (estudianteExistente.isPresent()) {</span>
+            // Actualizar los campos del estudiante
+<span class="fc" id="L59">            EstudianteORM estudiante = estudianteExistente.get();</span>
+<span class="fc" id="L60">            estudiante.setNombre(nombre);</span>
+<span class="fc" id="L61">            estudiante.setGenero(genero);</span>
+<span class="fc" id="L62">            estudiante.setEdad(edad);</span>
+<span class="fc" id="L63">            estudiante.setCarrera(carrera);</span>
+<span class="fc" id="L64">            estudiante.setEmail(email);</span>
+<span class="fc" id="L65">            estudiante.setSemestre(semestre);</span>
+<span class="fc" id="L66">            estudiante.setPromedio(promedio);</span>
+
+            // Guardar los cambios en la base de datos
+<span class="fc" id="L69">            estudianteJPA.save(estudiante);</span>
+<span class="fc" id="L70">            return true;</span>
+        } else {
+<span class="nc" id="L72">            throw new IllegalArgumentException(&quot;El estudiante con el ID proporcionado no existe&quot;);</span>
+        }
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
