@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EstudianteIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EstudianteIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.sistemaedu.integration.html">com.example.sistemaedu.integration</a> &gt; EstudianteIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.051s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">60%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="When_guardarEstudiante_Then_returnEstudianteGuardado()"></a>
+<h3 class="failures">When_guardarEstudiante_Then_returnEstudianteGuardado()</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
+	at app//org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
+	at app//com.example.sistemaedu.integration.EstudianteIntegrationTest.When_guardarEstudiante_Then_returnEstudianteGuardado(EstudianteIntegrationTest.java:61)
+	at java.base@21.0.1/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="When_obtenerEstudiantePorId_Then_returnEstudiante()"></a>
+<h3 class="failures">When_obtenerEstudiantePorId_Then_returnEstudiante()</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertNotNull.failNull(AssertNotNull.java:49)
+	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:35)
+	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
+	at app//org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
+	at app//com.example.sistemaedu.integration.EstudianteIntegrationTest.When_obtenerEstudiantePorId_Then_returnEstudiante(EstudianteIntegrationTest.java:87)
+	at java.base@21.0.1/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">When_actualizarEstudiante_Then_returnEstudianteActualizado()</td>
+<td class="success">0.901s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">When_eliminarEstudiante_Then_estudianteEliminado()</td>
+<td class="success">0.039s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">When_guardarEstudiante_Then_returnEstudianteGuardado()</td>
+<td class="failures">0.062s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">When_obtenerEstudiantePorId_Then_returnEstudiante()</td>
+<td class="failures">0.034s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-09-25T21:39:46.514-05:00  INFO 24524 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-25T21:39:46.521-05:00  INFO 24524 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.3)
+
+2024-09-25T21:39:46.556-05:00  INFO 24524 --- [sistemaedu] [    Test worker] c.e.s.i.EstudianteIntegrationTest        : Starting EstudianteIntegrationTest using Java 21.0.1 with PID 24524 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
+2024-09-25T21:39:46.557-05:00  INFO 24524 --- [sistemaedu] [    Test worker] c.e.s.i.EstudianteIntegrationTest        : The following 1 profile is active: &quot;test&quot;
+2024-09-25T21:39:46.703-05:00  INFO 24524 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-25T21:39:46.714-05:00  INFO 24524 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2024-09-25T21:39:46.966-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-09-25T21:39:46.991-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-25T21:39:46.991-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-25T21:39:47.119-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-25T21:39:47.122-05:00  INFO 24524 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 561 ms
+2024-09-25T21:39:47.271-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-25T21:39:47.275-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-25T21:39:47.291-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-25T21:39:47.292-05:00  INFO 24524 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-25T21:39:47.768-05:00  INFO 24524 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-25T21:39:47.769-05:00  INFO 24524 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-25T21:39:47.783-05:00  WARN 24524 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-25T21:39:48.043-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-25T21:39:48.109-05:00  INFO 24524 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-25T21:39:48.176-05:00  WARN 24524 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-25T21:39:48.340-05:00  INFO 24524 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 56704 (http) with context path '/'
+2024-09-25T21:39:48.343-05:00  INFO 24524 --- [sistemaedu] [    Test worker] c.e.s.i.EstudianteIntegrationTest        : Started EstudianteIntegrationTest in 1.819 seconds (process running for 11.523)
+2024-09-25T21:39:48.817-05:00  INFO 24524 --- [sistemaedu] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-25T21:39:48.817-05:00  INFO 24524 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-25T21:39:48.819-05:00  INFO 24524 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+&lt;200 OK OK,Estudiante guardado,[Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;text/plain;charset=UTF-8&quot;, Content-Length:&quot;19&quot;, Date:&quot;Thu, 26 Sep 2024 02:39:49 GMT&quot;, Keep-Alive:&quot;timeout=60&quot;, Connection:&quot;keep-alive&quot;]&gt;
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 25 sept 2024 21:39:51</p>
+</div>
+</div>
+</body>
+</html>

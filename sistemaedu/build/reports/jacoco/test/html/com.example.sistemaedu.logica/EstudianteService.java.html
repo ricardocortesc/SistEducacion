@@ -13,61 +13,61 @@ public class EstudianteService {
 
     private final EstudianteJPA estudianteJPA;
     public boolean guardarEstudiante(Long id,String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, Float promedio){
-<span class="nc bnc" id="L16" title="All 4 branches missed.">        if (promedio &lt; 0 || promedio &gt;5 ){</span>
-<span class="nc" id="L17">            throw new IllegalArgumentException(&quot;no se permite un promedio mayor a 5 o menor a 0&quot;);</span>
+<span class="fc bfc" id="L16" title="All 4 branches covered.">        if (promedio &lt; 0 || promedio &gt;5 ){</span>
+<span class="fc" id="L17">            throw new IllegalArgumentException(&quot;no se permite un promedio mayor a 5 o menor a 0&quot;);</span>
         }
-<span class="nc bnc" id="L19" title="All 4 branches missed.">        if (edad &lt; 0 || edad &gt;100 ){</span>
-<span class="nc" id="L20">            throw new IllegalArgumentException(&quot;no se permite esa edad&quot;);</span>
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (edad &lt; 0 || edad &gt;100 ){</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;no se permite esa edad&quot;);</span>
         }
-<span class="nc bnc" id="L22" title="All 4 branches missed.">        if (semestre &lt; 0 || semestre &gt;14 ){</span>
+<span class="pc bpc" id="L22" title="2 of 4 branches missed.">        if (semestre &lt; 0 || semestre &gt;14 ){</span>
 <span class="nc" id="L23">            throw new IllegalArgumentException(&quot;no se pueden tener mas de 14 semestres o menos de 0 semestres&quot;);</span>
         }
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
-<span class="nc" id="L26">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
+<span class="fc" id="L26">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
         }
 
-<span class="nc" id="L29">        EstudianteORM nuevoEstudiante =new EstudianteORM();</span>
-<span class="nc" id="L30">        nuevoEstudiante.setId(id);</span>
-<span class="nc" id="L31">        nuevoEstudiante.setNombre(nombre);</span>
-<span class="nc" id="L32">        nuevoEstudiante.setGenero(genero);</span>
-<span class="nc" id="L33">        nuevoEstudiante.setEdad(edad);</span>
-<span class="nc" id="L34">        nuevoEstudiante.setCarrera(carrera);</span>
-<span class="nc" id="L35">        nuevoEstudiante.setEmail(email);</span>
-<span class="nc" id="L36">        nuevoEstudiante.setSemestre(semestre);</span>
-<span class="nc" id="L37">        nuevoEstudiante.setPromedio(promedio);</span>
-<span class="nc" id="L38">        estudianteJPA.save(nuevoEstudiante);</span>
-<span class="nc" id="L39">        return true;</span>
+<span class="fc" id="L29">        EstudianteORM nuevoEstudiante =new EstudianteORM();</span>
+<span class="fc" id="L30">        nuevoEstudiante.setId(id);</span>
+<span class="fc" id="L31">        nuevoEstudiante.setNombre(nombre);</span>
+<span class="fc" id="L32">        nuevoEstudiante.setGenero(genero);</span>
+<span class="fc" id="L33">        nuevoEstudiante.setEdad(edad);</span>
+<span class="fc" id="L34">        nuevoEstudiante.setCarrera(carrera);</span>
+<span class="fc" id="L35">        nuevoEstudiante.setEmail(email);</span>
+<span class="fc" id="L36">        nuevoEstudiante.setSemestre(semestre);</span>
+<span class="fc" id="L37">        nuevoEstudiante.setPromedio(promedio);</span>
+<span class="fc" id="L38">        estudianteJPA.save(nuevoEstudiante);</span>
+<span class="fc" id="L39">        return true;</span>
     }
 
     public boolean actualizarEstudiante(Long id, String nombre, String genero, Integer edad, String carrera, String email, Integer semestre, Float promedio) {
-<span class="nc bnc" id="L43" title="All 4 branches missed.">        if (promedio &lt; 0 || promedio &gt; 5) {</span>
-<span class="nc" id="L44">            throw new IllegalArgumentException(&quot;No se permite un promedio mayor a 5 o menor a 0&quot;);</span>
+<span class="fc bfc" id="L43" title="All 4 branches covered.">        if (promedio &lt; 0 || promedio &gt; 5) {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;No se permite un promedio mayor a 5 o menor a 0&quot;);</span>
         }
-<span class="nc bnc" id="L46" title="All 4 branches missed.">        if (edad &lt; 0 || edad &gt; 100) {</span>
-<span class="nc" id="L47">            throw new IllegalArgumentException(&quot;No se permite esa edad&quot;);</span>
+<span class="fc bfc" id="L46" title="All 4 branches covered.">        if (edad &lt; 0 || edad &gt; 100) {</span>
+<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;No se permite esa edad&quot;);</span>
         }
-<span class="nc bnc" id="L49" title="All 4 branches missed.">        if (semestre &lt; 0 || semestre &gt; 14) {</span>
-<span class="nc" id="L50">            throw new IllegalArgumentException(&quot;No se permiten mÃ¡s de 14 semestres o menos de 0 semestres&quot;);</span>
+<span class="fc bfc" id="L49" title="All 4 branches covered.">        if (semestre &lt; 0 || semestre &gt; 14) {</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;No se permiten mÃ¡s de 14 semestres o menos de 0 semestres&quot;);</span>
         }
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
-<span class="nc" id="L53">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if(estudianteJPA.findByEmail(email).isPresent()){</span>
+<span class="fc" id="L53">            throw new IllegalArgumentException(&quot;El email ya estÃ¡ registrado&quot;);</span>
         }
-<span class="nc" id="L55">        Optional&lt;EstudianteORM&gt; estudianteExistente = estudianteJPA.findById(id);</span>
+<span class="fc" id="L55">        Optional&lt;EstudianteORM&gt; estudianteExistente = estudianteJPA.findById(id);</span>
 
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (estudianteExistente.isPresent()) {</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (estudianteExistente.isPresent()) {</span>
             // Actualizar los campos del estudiante
-<span class="nc" id="L59">            EstudianteORM estudiante = estudianteExistente.get();</span>
-<span class="nc" id="L60">            estudiante.setNombre(nombre);</span>
-<span class="nc" id="L61">            estudiante.setGenero(genero);</span>
-<span class="nc" id="L62">            estudiante.setEdad(edad);</span>
-<span class="nc" id="L63">            estudiante.setCarrera(carrera);</span>
-<span class="nc" id="L64">            estudiante.setEmail(email);</span>
-<span class="nc" id="L65">            estudiante.setSemestre(semestre);</span>
-<span class="nc" id="L66">            estudiante.setPromedio(promedio);</span>
+<span class="fc" id="L59">            EstudianteORM estudiante = estudianteExistente.get();</span>
+<span class="fc" id="L60">            estudiante.setNombre(nombre);</span>
+<span class="fc" id="L61">            estudiante.setGenero(genero);</span>
+<span class="fc" id="L62">            estudiante.setEdad(edad);</span>
+<span class="fc" id="L63">            estudiante.setCarrera(carrera);</span>
+<span class="fc" id="L64">            estudiante.setEmail(email);</span>
+<span class="fc" id="L65">            estudiante.setSemestre(semestre);</span>
+<span class="fc" id="L66">            estudiante.setPromedio(promedio);</span>
 
             // Guardar los cambios en la base de datos
-<span class="nc" id="L69">            estudianteJPA.save(estudiante);</span>
-<span class="nc" id="L70">            return true;</span>
+<span class="fc" id="L69">            estudianteJPA.save(estudiante);</span>
+<span class="fc" id="L70">            return true;</span>
         } else {
 <span class="nc" id="L72">            throw new IllegalArgumentException(&quot;El estudiante con el ID proporcionado no existe&quot;);</span>
         }

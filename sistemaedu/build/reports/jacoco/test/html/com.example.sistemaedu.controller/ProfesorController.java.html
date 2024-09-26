@@ -24,51 +24,51 @@ public class ProfesorController {
 
     @PostMapping(path = &quot;/profesor&quot;)
     public String guardarProfesor(@RequestBody ProfesorDTO profesor) {
-<span class="nc" id="L27">        profesores.add(profesor);</span>
-<span class="nc" id="L28">        profesorService.guardarProfesor(profesor.codigo(), profesor.nombre(), profesor.genero(), profesor.edad(), profesor.departamento(), profesor.cargo(), profesor.email());</span>
-<span class="nc" id="L29">        return &quot;Profesor guardado&quot;;</span>
+<span class="fc" id="L27">        profesores.add(profesor);</span>
+<span class="fc" id="L28">        profesorService.guardarProfesor(profesor.codigo(), profesor.nombre(), profesor.genero(), profesor.edad(), profesor.departamento(), profesor.cargo(), profesor.email());</span>
+<span class="fc" id="L29">        return &quot;Profesor guardado&quot;;</span>
     }
     @GetMapping(path = &quot;/profesores-bd&quot;)
     public List&lt;ProfesorORM&gt; obtenerProfesoresBD() {
-<span class="nc" id="L33">        return profesorJPA.findAll();</span>
+<span class="fc" id="L33">        return profesorJPA.findAll();</span>
     }
 
     @PutMapping(path = &quot;/profesor/{id}&quot;)
     public String actualizarProfesor(@PathVariable Long id, @RequestBody ProfesorDTO profesorDTO) {
-<span class="nc" id="L38">        ProfesorORM profesorExistente = profesorJPA.findById(id).orElse(null);</span>
+<span class="fc" id="L38">        ProfesorORM profesorExistente = profesorJPA.findById(id).orElse(null);</span>
 
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (profesorExistente != null) {</span>
-<span class="nc" id="L41">            boolean resultado = profesorService.actualizarProfesor(</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (profesorExistente != null) {</span>
+<span class="fc" id="L41">            boolean resultado = profesorService.actualizarProfesor(</span>
                     id,
-<span class="nc" id="L43">                    profesorDTO.nombre(),</span>
-<span class="nc" id="L44">                    profesorDTO.genero(),</span>
-<span class="nc" id="L45">                    profesorDTO.edad(),</span>
-<span class="nc" id="L46">                    profesorDTO.departamento(),</span>
-<span class="nc" id="L47">                    profesorDTO.cargo(),</span>
-<span class="nc" id="L48">                    profesorDTO.email()</span>
+<span class="fc" id="L43">                    profesorDTO.nombre(),</span>
+<span class="fc" id="L44">                    profesorDTO.genero(),</span>
+<span class="fc" id="L45">                    profesorDTO.edad(),</span>
+<span class="fc" id="L46">                    profesorDTO.departamento(),</span>
+<span class="fc" id="L47">                    profesorDTO.cargo(),</span>
+<span class="fc" id="L48">                    profesorDTO.email()</span>
             );
 
-<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (resultado) {</span>
-<span class="nc" id="L52">                return &quot;Profesor actualizado correctamente&quot;;</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            if (resultado) {</span>
+<span class="fc" id="L52">                return &quot;Profesor actualizado correctamente&quot;;</span>
             } else {
 <span class="nc" id="L54">                return &quot;No se pudo actualizar en el profesor&quot;;</span>
             }
         } else {
-<span class="nc" id="L57">            return &quot;Profesor no encontrado&quot;;</span>
+<span class="fc" id="L57">            return &quot;Profesor no encontrado&quot;;</span>
         }
     }
 
 
     @GetMapping(path = &quot;/profesores/{id}&quot;)
     public ProfesorDTO obtenerProfesor(@PathVariable Long id) {
-<span class="nc" id="L64">        return profesorJPA.findById(id)</span>
-<span class="nc" id="L65">                .map(profesorORM -&gt; new ProfesorDTO(profesorORM.getId(), profesorORM.getNombre(), profesorORM.getGenero(), profesorORM.getEdad(), profesorORM.getDepartamento(), profesorORM.getCargo(), profesorORM.getEmail()))</span>
-<span class="nc" id="L66">                .orElse(null);</span>
+<span class="fc" id="L64">        return profesorJPA.findById(id)</span>
+<span class="fc" id="L65">                .map(profesorORM -&gt; new ProfesorDTO(profesorORM.getId(), profesorORM.getNombre(), profesorORM.getGenero(), profesorORM.getEdad(), profesorORM.getDepartamento(), profesorORM.getCargo(), profesorORM.getEmail()))</span>
+<span class="fc" id="L66">                .orElse(null);</span>
     }
     @DeleteMapping(path = &quot;/profesorEliminado/{id}&quot;)
     public String eliminarProfesor(@PathVariable Long id) {
-<span class="nc" id="L70">        profesorJPA.deleteById(id);</span>
-<span class="nc" id="L71">        return &quot;Profesor eliminado&quot;;</span>
+<span class="fc" id="L70">        profesorJPA.deleteById(id);</span>
+<span class="fc" id="L71">        return &quot;Profesor eliminado&quot;;</span>
     }
 
 }
