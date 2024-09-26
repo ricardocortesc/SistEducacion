@@ -20,27 +20,27 @@ public class AsignaturaController {
 
     @PostMapping(path = &quot;/asignatura&quot;)
     public String guardarAsignatura(@RequestBody AsignaturaDTO asignatura) {
-<span class="nc" id="L23">        asignaturas.add(asignatura);</span>
-<span class="nc" id="L24">        asignaturaJPA.save(new AsignaturaORM(asignatura.nombre(), asignatura.creditos()));</span>
-<span class="nc" id="L25">        return &quot;Asignatura guardada&quot;;</span>
+<span class="fc" id="L23">        asignaturas.add(asignatura);</span>
+<span class="fc" id="L24">        asignaturaJPA.save(new AsignaturaORM(asignatura.nombre(), asignatura.creditos()));</span>
+<span class="fc" id="L25">        return &quot;Asignatura guardada&quot;;</span>
     }
 
     @GetMapping(path = &quot;/asignaturas-bd&quot;)
     public List&lt;AsignaturaORM&gt; obtenerAsignaturasBD() {
-<span class="nc" id="L30">        return asignaturaJPA.findAll();</span>
+<span class="fc" id="L30">        return asignaturaJPA.findAll();</span>
     }
 
     @PutMapping(path = &quot;/asignatura/{id}&quot;)
     public String actualizarAsignatura(@PathVariable Long id, @RequestBody AsignaturaDTO asignatura) {
-<span class="nc" id="L35">        AsignaturaORM asignaturaExistente = asignaturaJPA.findById(id).orElse(null);</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (asignaturaExistente != null) {</span>
-<span class="nc" id="L37">            asignaturaExistente.setNombre(asignatura.nombre());</span>
-<span class="nc" id="L38">            asignaturaExistente.setCreditos(asignatura.creditos());</span>
+<span class="fc" id="L35">        AsignaturaORM asignaturaExistente = asignaturaJPA.findById(id).orElse(null);</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (asignaturaExistente != null) {</span>
+<span class="fc" id="L37">            asignaturaExistente.setNombre(asignatura.nombre());</span>
+<span class="fc" id="L38">            asignaturaExistente.setCreditos(asignatura.creditos());</span>
 
             // Guardar los cambios en la base de datos
-<span class="nc" id="L41">            asignaturaJPA.save(asignaturaExistente);</span>
+<span class="fc" id="L41">            asignaturaJPA.save(asignaturaExistente);</span>
 
-<span class="nc" id="L43">            return &quot;Asignatura actualizada correctamente&quot;;</span>
+<span class="fc" id="L43">            return &quot;Asignatura actualizada correctamente&quot;;</span>
         } else {
 <span class="nc" id="L45">            return &quot;Asignatura no encontrada&quot;;</span>
         }
@@ -48,19 +48,19 @@ public class AsignaturaController {
 
     @GetMapping(path = &quot;/asignaturas/{id}&quot;)
     public AsignaturaDTO obtenerAsignatura(@PathVariable Long id) {
-<span class="nc" id="L51">        return asignaturaJPA.findById(id)</span>
-<span class="nc" id="L52">                .map(asignaturaORM -&gt; new AsignaturaDTO(</span>
-<span class="nc" id="L53">                        asignaturaORM.getId(),</span>
-<span class="nc" id="L54">                        asignaturaORM.getNombre(),</span>
-<span class="nc" id="L55">                        asignaturaORM.getCreditos()</span>
+<span class="fc" id="L51">        return asignaturaJPA.findById(id)</span>
+<span class="fc" id="L52">                .map(asignaturaORM -&gt; new AsignaturaDTO(</span>
+<span class="fc" id="L53">                        asignaturaORM.getId(),</span>
+<span class="fc" id="L54">                        asignaturaORM.getNombre(),</span>
+<span class="fc" id="L55">                        asignaturaORM.getCreditos()</span>
                 ))
-<span class="nc" id="L57">                .orElse(null);</span>
+<span class="fc" id="L57">                .orElse(null);</span>
     }
 
     @DeleteMapping(path = &quot;/asignaturaEliminada/{id}&quot;)
     public String eliminarAsignatura(@PathVariable Long id) {
-<span class="nc" id="L62">        asignaturaJPA.deleteById(id);</span>
-<span class="nc" id="L63">        return &quot;Asignatura eliminada&quot;;</span>
+<span class="fc" id="L62">        asignaturaJPA.deleteById(id);</span>
+<span class="fc" id="L63">        return &quot;Asignatura eliminada&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

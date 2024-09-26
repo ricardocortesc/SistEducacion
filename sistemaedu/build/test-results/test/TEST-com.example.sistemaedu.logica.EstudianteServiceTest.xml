@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.logica.EstudianteServiceTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2024-09-26T02:39:49" hostname="MIGUELFEOPC" time="0.6">
+<testsuite name="com.example.sistemaedu.logica.EstudianteServiceTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2024-09-26T22:29:20" hostname="MIGUELFEOPC" time="0.723">
   <properties/>
-  <testcase name="Given_promedioInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.472"/>
-  <testcase name="Given_promedioInvalidoMayorA5_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.004"/>
-  <testcase name="Given_promedioInvalidoMayorA5_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_semestreInvalidoMayorA14_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_emailExistente_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.047"/>
+  <testcase name="Given_promedioInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.532"/>
+  <testcase name="Given_promedioInvalidoMayorA5_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.007"/>
+  <testcase name="Given_promedioInvalidoMayorA5_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
+  <testcase name="Given_semestreInvalidoMayorA14_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.004"/>
+  <testcase name="Given_emailExistente_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.097"/>
   <testcase name="Given_promedioInvalidoMenorA0_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_emailExistente_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.004"/>
-  <testcase name="Given_edadInvalidoMayorA100_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
-  <testcase name="Given_semestreInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
+  <testcase name="Given_emailExistente_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
+  <testcase name="Given_edadInvalidoMayorA100_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.002"/>
+  <testcase name="Given_semestreInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.002"/>
   <testcase name="Given_semestreInvalidoMayorA14_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_edadInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_semestreInvalidoMenorA0_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
-  <testcase name="Given_edadInvalidoMayorA100_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.004"/>
-  <testcase name="When_actualizarEstudiante_Then_returnTrue()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.018"/>
-  <testcase name="When_guardarEstudiante_Then_returnTrue()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
+  <testcase name="Given_edadInvalidoMenorA0_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
+  <testcase name="Given_semestreInvalidoMenorA0_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
+  <testcase name="Given_edadInvalidoMayorA100_When_actualizarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.005"/>
+  <testcase name="When_actualizarEstudiante_Then_returnTrue()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.019"/>
+  <testcase name="When_guardarEstudiante_Then_returnTrue()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.004"/>
   <testcase name="Given_edadInvalidoMenorA0_When_guardarEstudiante_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.EstudianteServiceTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
