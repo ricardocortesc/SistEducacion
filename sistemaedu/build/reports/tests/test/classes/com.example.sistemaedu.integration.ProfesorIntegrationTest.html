@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ProfesorIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ProfesorIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.sistemaedu.integration.html">com.example.sistemaedu.integration</a> &gt; ProfesorIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.628s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testActualizarProfesor_Success()"></a>
+<h3 class="failures">testActualizarProfesor_Success()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: El email ya está registrado
+	at com.example.sistemaedu.logica.ProfesorService.guardarProfesor(ProfesorService.java:20)
+	at com.example.sistemaedu.integration.ProfesorIntegrationTest.testActualizarProfesor_Success(ProfesorIntegrationTest.java:52)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGuardarProfesor_EmailDuplicado()"></a>
+<h3 class="failures">testGuardarProfesor_EmailDuplicado()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: El email ya está registrado
+	at com.example.sistemaedu.logica.ProfesorService.guardarProfesor(ProfesorService.java:20)
+	at com.example.sistemaedu.integration.ProfesorIntegrationTest.testGuardarProfesor_EmailDuplicado(ProfesorIntegrationTest.java:40)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testActualizarProfesor_NoExistente()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">testActualizarProfesor_Success()</td>
+<td class="failures">0.010s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGuardarProfesor_EmailDuplicado()</td>
+<td class="failures">0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">testGuardarProfesor_Success()</td>
+<td class="success">0.609s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>20:22:45.616 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.sistemaedu.integration.ProfesorIntegrationTest]: ProfesorIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:22:45.775 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.ProfesorIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.3)
+
+2024-09-25T20:22:46.354-05:00  INFO 26960 --- [sistemaedu] [    Test worker] c.e.s.i.ProfesorIntegrationTest          : Starting ProfesorIntegrationTest using Java 21.0.4 with PID 26960 (started by Arci in C:\Universidad\Arquitectura de Software\SistEducacion\sistemaedu)
+2024-09-25T20:22:46.355-05:00  INFO 26960 --- [sistemaedu] [    Test worker] c.e.s.i.ProfesorIntegrationTest          : The following 1 profile is active: &quot;test&quot;
+2024-09-25T20:22:46.977-05:00  INFO 26960 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-25T20:22:47.031-05:00  INFO 26960 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2024-09-25T20:22:47.614-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-09-25T20:22:47.638-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-25T20:22:47.638-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-25T20:22:47.700-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-25T20:22:47.701-05:00  INFO 26960 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1324 ms
+2024-09-25T20:22:47.903-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-25T20:22:47.980-05:00  INFO 26960 --- [sistemaedu] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-25T20:22:48.025-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-25T20:22:48.467-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-25T20:22:48.515-05:00  INFO 26960 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-25T20:22:48.807-05:00  INFO 26960 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-25T20:22:48.808-05:00  INFO 26960 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-25T20:22:48.842-05:00  WARN 26960 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-25T20:22:49.912-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-25T20:22:49.954-05:00  INFO 26960 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-25T20:22:50.347-05:00  WARN 26960 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-25T20:22:50.697-05:00  INFO 26960 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52281 (http) with context path '/'
+2024-09-25T20:22:50.703-05:00  INFO 26960 --- [sistemaedu] [    Test worker] c.e.s.i.ProfesorIntegrationTest          : Started ProfesorIntegrationTest in 4.674 seconds (process running for 6.391)
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>WARNING: A Java agent has been loaded dynamically (C:\Users\Arci\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 25/09/2024, 8:22:51 p. m.</p>
+</div>
+</div>
+</body>
+</html>
