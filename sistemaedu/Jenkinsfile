@@ -1,9 +1,19 @@
 pipeline {
     agent any
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('* * * * *')  // Este trigger revisa cambios en el repositorio cada minuto
     }
     stages {
+
+        stage("Install Java 17") {
+            steps {
+                sh '''
+                    sudo apt-get update
+                    sudo apt-get install openjdk-17-jdk -y
+                    java -version
+                '''
+            }
+        }
 
         stage("Prepare Gradle") {
             steps {
@@ -18,6 +28,7 @@ pipeline {
                 }
             }
         }
+
         stage("Unit test") {
             steps {
                 dir('sistemaedu') {
@@ -25,6 +36,7 @@ pipeline {
                 }
             }
         }
+
         stage("Code coverage") {
             steps {
                 dir('sistemaedu') {
@@ -38,6 +50,7 @@ pipeline {
                 }
             }
         }
+
         stage('SonarQube analysis') {
             steps {
                 dir('sistemaedu') {
@@ -48,4 +61,3 @@ pipeline {
             }
         }
     }
-}
