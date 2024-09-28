@@ -1,54 +1,35 @@
 pipeline {
     agent any
+    triggers {
+        pollSCM('* * * * *')
+    }
     stages {
-        stage('Build') {
+
+        stage("Compile") {
             steps {
-                echo 'Building...'
-                sh './gradlew build' // Ajusta según tu herramienta de construcción
+                sh "./gradlew compileJava"
             }
         }
-        stage('Test') {
+        stage("Unit test") {
             steps {
-                sh './gradlew test jacocoTestReport' // Ajusta según tu configuración
-                script {
-                    // Verifica la cobertura aquí (ajusta según tu método de cálculo)
-                    def coverage = // obtener la cobertura
-                    if (coverage < 90) {
-                        error("La cobertura de código es menor al 90%")
-                    }
-                }
+                sh "./gradlew test"
             }
         }
-        stage('SonarQube Analysis') {
+        stage("Code coverage") {
             steps {
-                script {
-                    def scannerHome = tool 'SonarQubeScanner'
-                    withSonarQubeEnv('SonarQubeServer') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
-            }
+        	    sh "./gradlew jacocoTestReport"
+        	 	publishHTML (target: [
+         	        reportDir: 'build/reports/jacoco/test/html',
+         			reportFiles: 'index.html',
+         			reportName: 'JacocoReport'
+         	    ])
+         		sh "./gradlew jacocoTestCoverageVerification"
+         	}
         }
-        stage('Vulnerability Scan') {
+        stage('SonarQube analysis') {
             steps {
-                sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL my-image:latest'
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    sh 'docker build -t my-image:latest .'
-                }
-            }
-        }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                        sh 'docker tag my-image:latest mydockerhubuser/my-image:latest'
-                        sh 'docker push mydockerhubuser/my-image:latest'
-                    }
+                withSonarQubeEnv('SonarQubePruebas') {
+                    sh './gradlew sonarqube'
                 }
             }
         }

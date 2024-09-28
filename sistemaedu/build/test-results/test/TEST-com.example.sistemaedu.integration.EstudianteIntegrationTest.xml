@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.integration.EstudianteIntegrationTest" tests="5" skipped="0" failures="2" errors="0" timestamp="2024-09-26T22:29:17" hostname="MIGUELFEOPC" time="0.289">
+<testsuite name="com.example.sistemaedu.integration.EstudianteIntegrationTest" tests="5" skipped="0" failures="2" errors="0" timestamp="2024-09-26T22:35:14" hostname="MIGUELFEOPC" time="0.317">
   <properties/>
-  <testcase name="When_actualizarEstudiante_Then_returnEstudianteActualizado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.117"/>
-  <testcase name="When_eliminarEstudiante_Then_estudianteEliminado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.043"/>
-  <testcase name="When_guardarEstudiante_Then_returnEstudianteGuardado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.058">
+  <testcase name="When_actualizarEstudiante_Then_returnEstudianteActualizado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.141"/>
+  <testcase name="When_eliminarEstudiante_Then_estudianteEliminado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.029"/>
+  <testcase name="When_guardarEstudiante_Then_returnEstudianteGuardado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.059">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -17,7 +17,7 @@
 	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
 </failure>
   </testcase>
-  <testcase name="When_obtenerEstudiantePorId_Then_returnEstudiante()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.044">
+  <testcase name="When_obtenerEstudiantePorId_Then_returnEstudiante()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.06">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -31,10 +31,10 @@
 	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
 </failure>
   </testcase>
-  <testcase name="When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.019"/>
-  <system-out><![CDATA[2024-09-26T17:29:17.430-05:00  INFO 19500 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-09-26T17:29:17.434-05:00  INFO 19500 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
-<200 OK OK,Estudiante guardado,[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"19", Date:"Thu, 26 Sep 2024 22:29:16 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+  <testcase name="When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.016"/>
+  <system-out><![CDATA[2024-09-26T17:35:14.251-05:00  INFO 7756 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-26T17:35:14.255-05:00  INFO 7756 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
+<200 OK OK,Estudiante guardado,[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=UTF-8", Content-Length:"19", Date:"Thu, 26 Sep 2024 22:35:13 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
