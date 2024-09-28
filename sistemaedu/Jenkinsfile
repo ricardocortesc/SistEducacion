@@ -7,12 +7,12 @@ pipeline {
 
         stage("Compile") {
             steps {
-                sh "./gradlew compileJava"
+                sh "./sistemaEdu/gradlew.bat compileJava"
             }
         }
         stage("Unit test") {
             steps {
-                sh "./gradlew test"
+                sh "./sistemaEdu/gradlew.bat test"
             }
         }
         stage("Code coverage") {
@@ -23,13 +23,13 @@ pipeline {
          			reportFiles: 'index.html',
          			reportName: 'JacocoReport'
          	    ])
-         		sh "./gradlew jacocoTestCoverageVerification"
+         		sh "./sistemaEdu/gradlew.bat jacocoTestCoverageVerification"
          	}
         }
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQubePruebas') {
-                    sh './gradlew sonarqube'
+                    sh './sistemaEdu/gradlew.bat sonarqube'
                 }
             }
         }
