@@ -4,16 +4,17 @@ pipeline {
         pollSCM('* * * * *')  // Este trigger revisa cambios en el repositorio cada minuto
     }
     environment {
-        JAVA_HOME = '/usr/lib/jvm/java-1.17.0-openjdk-amd64' // Ruta correcta para Java 17
-        PATH = "${JAVA_HOME}/bin:${env.PATH}" // Asegúrate de usar env.PATH
+        JAVA_HOME = '/usr/lib/jvm/java-21-openjdk-amd64' // Cambia esto si es necesario
+        PATH = "${JAVA_HOME}/bin:${PATH}"
     }
 
+
     stages {
-        stage("Install Java 17") {
+        stage("Install Java 21") {
             steps {
                 sh '''
                     sudo apt-get update
-                    sudo apt-get install openjdk-17-jdk -y
+                    sudo apt-get install openjdk-21-jdk -y
                     java -version
                 '''
             }
