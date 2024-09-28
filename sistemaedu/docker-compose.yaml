@@ -21,10 +21,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.001'
+          cpus: '0.5'
           memory: 500M
         reservations:
-          cpus: '0.0001'
+          cpus: '0.2'
           memory: 200M
 
   db:
@@ -38,17 +38,6 @@ services:
       - postgresqll:/var/lib/postgresql
       - postgresql_dataa:/var/lib/postgresql/data
 
-  jenkins:
-    image: jenkins/jenkins:lts
-    ports:
-      - "8080:8080"
-      - "50000:50000"
-    networks:
-      - sonarnet
-    volumes:
-      - jenkins_home:/var/jenkins_home
-    environment:
-      - JENKINS_OPTS=--httpPort=8080
 
 networks:
   sonarnet:
