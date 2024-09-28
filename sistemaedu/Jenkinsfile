@@ -8,9 +8,9 @@ pipeline {
         stage("Install Java 17") {
             steps {
                 sh '''
-                    sudo apt-get update
-                    sudo apt-get install openjdk-17-jdk -y
-                    java -version
+                    apt-get update
+                    apt-get install openjdk-17-jdk -y
+                    -version
                 '''
             }
         }
