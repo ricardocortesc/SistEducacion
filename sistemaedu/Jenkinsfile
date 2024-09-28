@@ -6,36 +6,44 @@ pipeline {
     stages {
 
         stage("Prepare Gradle") {
-                    steps {
-                        sh 'chmod +x ./sistemaedu/gradlew'
-                    }
-                }
+            steps {
+                sh 'chmod +x ./sistemaedu/gradlew'
+            }
+        }
 
         stage("Compile") {
             steps {
-                sh "./sistemaedu/gradlew compileJava"
+                dir('sistemaedu') {
+                    sh "./gradlew compileJava"
+                }
             }
         }
         stage("Unit test") {
             steps {
-                sh "./sistemaedu/gradlew test"
+                dir('sistemaedu') {
+                    sh "./gradlew test"
+                }
             }
         }
         stage("Code coverage") {
             steps {
-        	    sh "./sistemaedu/gradlew jacocoTestReport"
-        	 	publishHTML (target: [
-         	        reportDir: 'build/reports/jacoco/test/html',
-         			reportFiles: 'index.html',
-         			reportName: 'JacocoReport'
-         	    ])
-         		sh "./sistemaedu/gradlew jacocoTestCoverageVerification"
-         	}
+                dir('sistemaedu') {
+                    sh "./gradlew jacocoTestReport"
+                    publishHTML (target: [
+                        reportDir: 'build/reports/jacoco/test/html',
+                        reportFiles: 'index.html',
+                        reportName: 'JacocoReport'
+                    ])
+                    sh "./gradlew jacocoTestCoverageVerification"
+                }
+            }
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('SonarQubePruebas') {
-                    sh './sistemaedu/gradlew sonarqube'
+                dir('sistemaedu') {
+                    withSonarQubeEnv('SonarQubePruebas') {
+                        sh './gradlew sonarqube'
+                    }
                 }
             }
         }
