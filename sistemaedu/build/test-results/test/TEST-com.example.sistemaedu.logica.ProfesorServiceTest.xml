@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.logica.ProfesorServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-09-26T22:35:18" hostname="MIGUELFEOPC" time="0.337">
+<testsuite name="com.example.sistemaedu.logica.ProfesorServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-09-28T23:55:45" hostname="MIGUELFEOPC" time="0.12">
   <properties/>
-  <testcase name="When_guardarProfesor_Then_returnTrue()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.313"/>
-  <testcase name="Given_edadInvalidoMayorA100_When_actualizarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.003"/>
+  <testcase name="When_guardarProfesor_Then_returnTrue()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.097"/>
+  <testcase name="Given_edadInvalidoMayorA100_When_actualizarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
   <testcase name="Given_edadInvalidaMenorA0_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
-  <testcase name="Given_emailExiste_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.003"/>
+  <testcase name="Given_emailExiste_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
   <testcase name="Given_emailExiste_When_actualizarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.003"/>
-  <testcase name="When_actualizarProfesor_Then_returnTrue()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
+  <testcase name="When_actualizarProfesor_Then_returnTrue()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.003"/>
   <testcase name="Given_edadInvalidoMayorA100_When_guardarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
   <testcase name="Given_edadInvalidaMenorA0_When_actualizarProfesor_Then_throwIllegalArgumentException()" classname="com.example.sistemaedu.logica.ProfesorServiceTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>

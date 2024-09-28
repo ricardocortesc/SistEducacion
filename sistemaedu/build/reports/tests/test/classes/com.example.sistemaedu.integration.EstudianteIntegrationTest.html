@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.305s</div>
+<div class="counter">0.233s</div>
 <p>duration</p>
 </div>
 </td>
@@ -84,9 +84,9 @@
 	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
 	at app//org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
 	at app//com.example.sistemaedu.integration.EstudianteIntegrationTest.When_guardarEstudiante_Then_returnEstudianteGuardado(EstudianteIntegrationTest.java:55)
-	at java.base@21.0.1/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
 </pre>
 </span>
 </div>
@@ -102,9 +102,9 @@
 	at app//org.junit.jupiter.api.AssertNotNull.assertNotNull(AssertNotNull.java:30)
 	at app//org.junit.jupiter.api.Assertions.assertNotNull(Assertions.java:304)
 	at app//com.example.sistemaedu.integration.EstudianteIntegrationTest.When_obtenerEstudiantePorId_Then_returnEstudiante(EstudianteIntegrationTest.java:75)
-	at java.base@21.0.1/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.1/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
 </pre>
 </span>
 </div>
@@ -121,27 +121,27 @@
 </thead>
 <tr>
 <td class="success">When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()</td>
-<td class="success">0.016s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">When_actualizarEstudiante_Then_returnEstudianteActualizado()</td>
-<td class="success">0.141s</td>
+<td class="success">0.110s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">When_eliminarEstudiante_Then_estudianteEliminado()</td>
-<td class="success">0.029s</td>
+<td class="success">0.030s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">When_guardarEstudiante_Then_returnEstudianteGuardado()</td>
-<td class="failures">0.059s</td>
+<td class="failures">0.046s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
 <td class="failures">When_obtenerEstudiantePorId_Then_returnEstudiante()</td>
-<td class="failures">0.060s</td>
+<td class="failures">0.034s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -149,9 +149,9 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2024-09-26T17:35:14.251-05:00  INFO 7756 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-09-26T17:35:14.255-05:00  INFO 7756 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
-&lt;200 OK OK,Estudiante guardado,[Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;text/plain;charset=UTF-8&quot;, Content-Length:&quot;19&quot;, Date:&quot;Thu, 26 Sep 2024 22:35:13 GMT&quot;, Keep-Alive:&quot;timeout=60&quot;, Connection:&quot;keep-alive&quot;]&gt;
+<pre>2024-09-28T18:55:41.563-05:00  INFO 1636 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-28T18:55:41.565-05:00  INFO 1636 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
+&lt;200 OK OK,Estudiante guardado,[Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;text/plain;charset=UTF-8&quot;, Content-Length:&quot;19&quot;, Date:&quot;Sat, 28 Sep 2024 23:55:41 GMT&quot;, Keep-Alive:&quot;timeout=60&quot;, Connection:&quot;keep-alive&quot;]&gt;
 </pre>
 </span>
 </div>
@@ -163,7 +163,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 26 sept 2024 17:35:20</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 28 sept 2024 18:55:46</p>
 </div>
 </div>
 </body>
