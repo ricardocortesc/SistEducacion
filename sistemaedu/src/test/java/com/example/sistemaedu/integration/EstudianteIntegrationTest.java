@@ -41,12 +41,9 @@ public class EstudianteIntegrationTest {
     @Test
     void When_guardarEstudiante_Then_returnEstudianteGuardado() {
         EstudianteDTO nuevoEstudiante = new EstudianteDTO(1L, "Juan Perez", "Masculino", 20, "Ingeniería de Sistemas", "work@example.com", 3, 4.5f);
-
-        // Realiza la inserción del nuevo estudiante
         ResponseEntity<String> respuestaInsercion = testRestTemplate.postForEntity("/estudiante", nuevoEstudiante, String.class);
         Assertions.assertEquals("Estudiante guardado", respuestaInsercion.getBody());
 
-        // Consulta todos los estudiantes en la base de datos
         ResponseEntity<List> resultado = testRestTemplate.getForEntity("/estudiantes-bd", List.class);
         Assertions.assertFalse(Objects.requireNonNull(resultado.getBody()).isEmpty());
         Assertions.assertEquals(1, resultado.getBody().size()); // Asegúrate de que solo hay un estudiante
