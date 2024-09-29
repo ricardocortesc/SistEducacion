@@ -67,19 +67,27 @@ public class ProfesorIntegrationTest {
 
     @Test
     void When_actualizarProfesor_Then_returnProfesorActualizado() {
-        ProfesorDTO profesorInicial = new ProfesorDTO(3L, "Maria Lopez", "Femenino", 30, "Matemáticas", "Profesor", "maria.lopez@example.com");
+        // Crea y guarda un profesor inicial
+        ProfesorDTO profesorInicial = new ProfesorDTO(1L, "Maria Lopez", "Femenino", 30, "Matemáticas", "Profesor", "maria.graciela@example.com");
         testRestTemplate.postForEntity("/profesor", profesorInicial, String.class);
 
-        ProfesorDTO profesorActualizado = new ProfesorDTO(3L, "Maria Lopez", "Femenino", 31, "Matemáticas", "Profesor", "maria.nueva@example.com");
+        // Prepara el profesor actualizado
+        ProfesorDTO profesorActualizado = new ProfesorDTO(1L, "Maria Lopez", "Femenino", 31, "Matemáticas", "Profesor", "maria.nueva@example.com");
+
+        // Realiza la actualización
         ResponseEntity<String> respuestaActualizacion = testRestTemplate.exchange("/profesor/1", HttpMethod.PUT, new HttpEntity<>(profesorActualizado), String.class);
         Assertions.assertEquals("Profesor actualizado correctamente", respuestaActualizacion.getBody());
-        ResponseEntity<ProfesorDTO> resultadoConsulta = testRestTemplate.getForEntity("/profesores/2", ProfesorDTO.class);
+
+        // Consulta el profesor actualizado
+        ResponseEntity<ProfesorDTO> resultadoConsulta = testRestTemplate.getForEntity("/profesores/1", ProfesorDTO.class);
         ProfesorDTO profesorConsultado = resultadoConsulta.getBody();
 
+        // Verifica que el profesor no sea nulo y que se hayan actualizado los valores correctamente
         Assertions.assertNotNull(profesorConsultado);
         Assertions.assertEquals(31, profesorConsultado.edad());
         Assertions.assertEquals("maria.nueva@example.com", profesorConsultado.email());
     }
+
 
     @Test
     void When_actualizarProfesor_NonExistentId_Then_returnProfesorNoEncontrado() {
