@@ -76,7 +76,6 @@ public class ProfesorIntegrationTest {
 
         ResponseEntity<ProfesorDTO> resultadoConsulta = testRestTemplate.getForEntity("/profesores/1", ProfesorDTO.class);
         ProfesorDTO profesorConsultado = resultadoConsulta.getBody();
-
         Assertions.assertNotNull(profesorConsultado);
         Assertions.assertEquals(31, profesorConsultado.edad());
         Assertions.assertEquals("maria.nueva@example.com", profesorConsultado.email());

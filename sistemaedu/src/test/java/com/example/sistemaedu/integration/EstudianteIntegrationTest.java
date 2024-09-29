@@ -55,7 +55,6 @@ public class EstudianteIntegrationTest {
         EstudianteDTO estudianteBuscar = new EstudianteDTO(2L, "Juan Perez", "Masculino", 20, "Ingeniería de Sistemas", "worke@example.com", 3, 4.5f);
         ResponseEntity<String> respuestaInsercion = testRestTemplate.postForEntity("/estudiante", estudianteBuscar, String.class);
         ResponseEntity<EstudianteDTO> respuestaObtenerEstudiante = testRestTemplate.getForEntity("/estudiantes/2", EstudianteDTO.class);
-
         Assertions.assertTrue(respuestaObtenerEstudiante.getStatusCode().is2xxSuccessful());
         EstudianteDTO estudianteObtenido = respuestaObtenerEstudiante.getBody();
         Assertions.assertNotNull(estudianteObtenido);
