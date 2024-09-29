@@ -35,9 +35,9 @@ public class AsignaturaIntegrationTest {
 
     @Test
     void When_obtenerAsignaturaPorId_Then_returnAsignatura() {
-        AsignaturaDTO asignaturaBuscar = new AsignaturaDTO(1L, "Física", 3);
+        AsignaturaDTO asignaturaBuscar = new AsignaturaDTO(2L, "Física", 3);
         testRestTemplate.postForEntity("/asignatura", asignaturaBuscar, String.class);
-        ResponseEntity<AsignaturaDTO> respuestaObtenerAsignatura = testRestTemplate.getForEntity("/asignaturas/1", AsignaturaDTO.class);
+        ResponseEntity<AsignaturaDTO> respuestaObtenerAsignatura = testRestTemplate.getForEntity("/asignaturas/2", AsignaturaDTO.class);
 
         Assertions.assertTrue(respuestaObtenerAsignatura.getStatusCode().is2xxSuccessful());
         AsignaturaDTO asignaturaObtenida = respuestaObtenerAsignatura.getBody();

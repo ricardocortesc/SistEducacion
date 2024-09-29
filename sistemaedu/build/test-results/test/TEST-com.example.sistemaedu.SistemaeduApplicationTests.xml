@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.SistemaeduApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-28T23:55:44" hostname="MIGUELFEOPC" time="0.002">
+<testsuite name="com.example.sistemaedu.SistemaeduApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-29T01:01:27" hostname="MIGUELFEOPC" time="0.006">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.sistemaedu.SistemaeduApplicationTests" time="0.002"/>
-  <system-out><![CDATA[2024-09-28T18:55:42.031-05:00  INFO 1636 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.SistemaeduApplicationTests]: SistemaeduApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-09-28T18:55:42.046-05:00  INFO 1636 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.SistemaeduApplicationTests
+  <testcase name="contextLoads()" classname="com.example.sistemaedu.SistemaeduApplicationTests" time="0.006"/>
+  <system-out><![CDATA[2024-09-28T20:01:25.238-05:00  INFO 15080 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.SistemaeduApplicationTests]: SistemaeduApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-28T20:01:25.249-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.SistemaeduApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,20 +14,20 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-09-28T18:55:42.093-05:00  INFO 1636 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : Starting SistemaeduApplicationTests using Java 17.0.11 with PID 1636 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
-2024-09-28T18:55:42.094-05:00  INFO 1636 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2024-09-28T18:55:42.246-05:00  INFO 1636 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-28T18:55:42.261-05:00  INFO 1636 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
-2024-09-28T18:55:42.422-05:00  INFO 1636 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2024-09-28T18:55:43.656-05:00  INFO 1636 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a37a327
-2024-09-28T18:55:43.656-05:00  INFO 1636 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2024-09-28T18:55:43.664-05:00  INFO 1636 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-28T18:55:43.668-05:00  INFO 1636 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-28T18:55:43.683-05:00  INFO 1636 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-28T18:55:44.266-05:00  INFO 1636 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-28T18:55:44.266-05:00  INFO 1636 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-28T18:55:44.366-05:00  WARN 1636 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-09-28T18:55:44.484-05:00  INFO 1636 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : Started SistemaeduApplicationTests in 2.425 seconds (process running for 15.852)
+2024-09-28T20:01:25.306-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : Starting SistemaeduApplicationTests using Java 17.0.11 with PID 15080 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
+2024-09-28T20:01:25.307-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-09-28T20:01:25.564-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-28T20:01:25.586-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
+2024-09-28T20:01:25.715-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-28T20:01:26.852-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16485f8d
+2024-09-28T20:01:26.853-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-28T20:01:26.871-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-28T20:01:26.881-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-28T20:01:26.914-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-28T20:01:27.449-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-28T20:01:27.449-05:00  INFO 15080 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-28T20:01:27.585-05:00  WARN 15080 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-28T20:01:27.737-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.SistemaeduApplicationTests         : Started SistemaeduApplicationTests in 2.474 seconds (process running for 18.007)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
