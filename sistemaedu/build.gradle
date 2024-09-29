@@ -56,13 +56,14 @@ jacocoTestReport {
 				})
 		)
 	}
+	reports {
+		xml.required.set(true)
+		html.required.set(true)
+	}
 }
 
-sonarqube {
+sonar {
 	properties {
-		property "sonar.projectKey", "com.example:sistemaedu"
-		property "sonar.host.url", "http://sonarQubePruebas:9000"
-		property "sonar.login", "jenkins"
-		property "sonar.coverage.jacoco.xmlReportPaths", "/reports/jacoco/test/jacocoTestReport.xml"
+		property 'sonar.projectKey', 'sistemaedu'
 	}
 }
