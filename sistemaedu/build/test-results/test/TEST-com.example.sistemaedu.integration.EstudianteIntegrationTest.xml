@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.sistemaedu.integration.EstudianteIntegrationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-09-29T01:01:27" hostname="MIGUELFEOPC" time="0.295">
+<testsuite name="com.example.sistemaedu.integration.EstudianteIntegrationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-09-29T03:23:26" hostname="MIGUELFEOPC" time="0.259">
   <properties/>
-  <testcase name="When_actualizarEstudiante_Then_returnEstudianteActualizado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.133"/>
-  <testcase name="When_eliminarEstudiante_Then_estudianteEliminado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.038"/>
-  <testcase name="When_guardarEstudiante_Then_returnEstudianteGuardado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.06"/>
-  <testcase name="When_obtenerEstudiantePorId_Then_returnEstudiante()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.041"/>
-  <testcase name="When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.016"/>
-  <system-out><![CDATA[2024-09-28T20:01:27.782-05:00  INFO 15080 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-09-28T20:01:27.785-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
+  <testcase name="When_actualizarEstudiante_Then_returnEstudianteActualizado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.122"/>
+  <testcase name="When_eliminarEstudiante_Then_estudianteEliminado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.033"/>
+  <testcase name="When_guardarEstudiante_Then_returnEstudianteGuardado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.037"/>
+  <testcase name="When_obtenerEstudiantePorId_Then_returnEstudiante()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.042"/>
+  <testcase name="When_actualizarEstudiante_NonExistentId_Then_returnEstudianteNoEncontrado()" classname="com.example.sistemaedu.integration.EstudianteIntegrationTest" time="0.018"/>
+  <system-out><![CDATA[2024-09-28T22:23:26.053-05:00  INFO 18952 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.EstudianteIntegrationTest]: EstudianteIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-28T22:23:26.056-05:00  INFO 18952 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.EstudianteIntegrationTest
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
