@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.030s</div>
+<div class="counter">1.186s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">When_actualizarAsignatura_Then_returnAsignaturaActualizada()</td>
-<td class="success">0.067s</td>
+<td class="success">0.083s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">When_eliminarAsignatura_Then_returnAsignaturaEliminada()</td>
-<td class="success">1.667s</td>
+<td class="success">0.834s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">When_guardarAsignatura_Then_returnAsignaturaGuardada()</td>
-<td class="success">0.252s</td>
+<td class="success">0.219s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">When_obtenerAsignaturaPorId_Then_returnAsignatura()</td>
-<td class="success">0.044s</td>
+<td class="success">0.050s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,8 +102,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>20:01:11.849 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.sistemaedu.integration.AsignaturaIntegrationTest]: AsignaturaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:01:12.121 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.AsignaturaIntegrationTest
+<pre>2024-09-28T22:23:22.256-05:00  INFO 18952 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.AsignaturaIntegrationTest]: AsignaturaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-28T22:23:22.280-05:00  INFO 18952 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.AsignaturaIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -114,31 +114,30 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-09-28T20:01:13.138-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Starting AsignaturaIntegrationTest using Java 17.0.11 with PID 15080 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
-2024-09-28T20:01:13.142-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : The following 1 profile is active: &quot;test&quot;
-2024-09-28T20:01:14.283-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-28T20:01:14.435-05:00  INFO 15080 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 3 JPA repository interfaces.
-2024-09-28T20:01:16.443-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2024-09-28T20:01:16.501-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-28T20:01:16.502-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-28T20:01:16.768-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-09-28T20:01:16.774-05:00  INFO 15080 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3579 ms
-2024-09-28T20:01:17.212-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-28T20:01:17.354-05:00  INFO 15080 --- [sistemaedu] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-28T20:01:17.449-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-28T20:01:18.627-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-28T20:01:18.754-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-28T20:01:19.539-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2024-09-28T20:01:19.544-05:00  INFO 15080 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-28T20:01:19.622-05:00  WARN 15080 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-09-28T20:01:21.577-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-28T20:01:21.671-05:00  INFO 15080 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-28T20:01:22.309-05:00  WARN 15080 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-09-28T20:01:23.158-05:00  INFO 15080 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 51291 (http) with context path '/'
-2024-09-28T20:01:23.174-05:00  INFO 15080 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Started AsignaturaIntegrationTest in 10.674 seconds (process running for 13.443)
-2024-09-28T20:01:24.302-05:00  INFO 15080 --- [sistemaedu] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-09-28T20:01:24.304-05:00  INFO 15080 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-09-28T20:01:24.308-05:00  INFO 15080 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-09-28T22:23:22.351-05:00  INFO 18952 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Starting AsignaturaIntegrationTest using Java 17.0.11 with PID 18952 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
+2024-09-28T22:23:22.351-05:00  INFO 18952 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : The following 1 profile is active: &quot;test&quot;
+2024-09-28T22:23:22.759-05:00  INFO 18952 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-28T22:23:22.788-05:00  INFO 18952 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 3 JPA repository interfaces.
+2024-09-28T22:23:23.248-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-09-28T22:23:23.274-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-28T22:23:23.275-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-28T22:23:23.418-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-28T22:23:23.419-05:00  INFO 18952 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1061 ms
+2024-09-28T22:23:23.582-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-28T22:23:23.587-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-28T22:23:23.613-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-28T22:23:23.616-05:00  INFO 18952 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-09-28T22:23:24.229-05:00  INFO 18952 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-09-28T22:23:24.230-05:00  INFO 18952 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-09-28T22:23:24.251-05:00  WARN 18952 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-28T22:23:24.459-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-28T22:23:24.529-05:00  INFO 18952 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-28T22:23:24.613-05:00  WARN 18952 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-28T22:23:24.845-05:00  INFO 18952 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 57916 (http) with context path '/'
+2024-09-28T22:23:24.850-05:00  INFO 18952 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Started AsignaturaIntegrationTest in 2.566 seconds (process running for 16.896)
+2024-09-28T22:23:25.189-05:00  INFO 18952 --- [sistemaedu] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-28T22:23:25.189-05:00  INFO 18952 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-28T22:23:25.191-05:00  INFO 18952 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 </pre>
 </span>
 </div>
@@ -150,7 +149,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 28 sept 2024 20:01:30</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 28 sept 2024 22:23:28</p>
 </div>
 </div>
 </body>
