@@ -1,4 +1,4 @@
-FROM openjdk:21-slim AS build
+FROM openjdk:17-slim AS build
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -10,7 +10,7 @@ RUN chmod +x ./gradlew
 
 RUN ./gradlew bootJar --no-daemon
 
-FROM openjdk:21-slim
+FROM openjdk:17-slim
 
 EXPOSE 8080
 
