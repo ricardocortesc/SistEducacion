@@ -57,11 +57,11 @@ pipeline {
 
         stage('SonarQube analysis') {
             steps {
-
+                dir('sistemaedu') {
                    withSonarQubeEnv(installationName: 'SonarQubePruebas') {
                        sh './gradlew sonarqube'
                    }
-
+                }
             }
         }
     }
