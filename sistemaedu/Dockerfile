@@ -1,19 +1,19 @@
-FROM openjdk:17-slim AS build
+FROM gradle:8.8.0-jdk17 AS build
 
-RUN apt-get update && apt-get install -y \
-    git \
-    wget
+WORKDIR /app
 
-COPY . .
+COPY build.gradle settings.gradle /app/
 
-RUN chmod +x ./gradlew
+COPY src /app/src
 
-RUN ./gradlew bootJar --no-daemon
+RUN gradle assemble --no-daemon
 
-FROM openjdk:17-slim
+FROM openjdk:17-jdk-slim
 
-EXPOSE 8080
+WORKDIR /app
 
-COPY --from=build /build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/sistemaedu-0.0.1-SNAPSHOT.jar ./app.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+EXPOSE 80
+
+ENTRYPOINT ["java" ,"-jar", "app.jar"]
