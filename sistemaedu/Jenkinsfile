@@ -7,6 +7,15 @@ pipeline {
         JAVA_HOME = '/usr/lib/jvm/java-1.17.0-openjdk-amd64'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
+    stage("Install Java 17") {
+        steps {
+            sh '''
+                apt-get update
+                apt-get install openjdk-17-jdk -y
+            '''
+        }
+    }
+
 
     stages {
         stage("Prepare Gradle") {
