@@ -9,16 +9,6 @@ pipeline {
     }
 
     stages {
-        stage("Install Java 17") {
-            steps {
-                sh '''
-                    apt-get update
-                    apt-get install openjdk-17-jdk -y
-                    java -version
-                '''
-            }
-        }
-
         stage("Prepare Gradle") {
             steps {
                 sh 'chmod +x ./sistemaedu/gradlew'
