@@ -12,6 +12,8 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y sudo
+
 COPY --from=build /app/build/libs/sistemaedu-0.0.1-SNAPSHOT.jar ./app.jar
 
 EXPOSE 80
