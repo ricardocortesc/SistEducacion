@@ -1,12 +1,16 @@
 package com.example.sistemaedu.controller;
 
 import com.example.sistemaedu.bd.JPA.AsignaturaJPA;
+import com.example.sistemaedu.bd.JPA.EstudianteJPA;
+import com.example.sistemaedu.bd.JPA.ProfesorJPA;
 import com.example.sistemaedu.bd.ORM.AsignaturaORM;
+import com.example.sistemaedu.bd.ORM.EstudianteORM;
+import com.example.sistemaedu.bd.ORM.ProfesorORM;
 import com.example.sistemaedu.controller.DTO.AsignaturaDTO;
+import com.example.sistemaedu.logica.AsignaturaService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,50 +18,56 @@ import java.util.List;
 @CrossOrigin("https://sistemaedufront.onrender.com")
 public class AsignaturaController {
 
-    private AsignaturaJPA asignaturaJPA;
-
-    List<AsignaturaDTO> asignaturas = new ArrayList<>();
+    private final AsignaturaJPA asignaturaJPA;
+    private final ProfesorJPA profesorJPA;
+    private final EstudianteJPA estudianteJPA;
+    private final AsignaturaService asignaturaService;
 
     @PostMapping(path = "/asignatura")
-    public String guardarAsignatura(@RequestBody AsignaturaDTO asignatura) {
-        asignaturas.add(asignatura);
-        asignaturaJPA.save(new AsignaturaORM(asignatura.nombre(), asignatura.creditos()));
-        return "Asignatura guardada";
+    public String guardarAsignatura(@RequestBody AsignaturaDTO asignaturaDTO) {
+        // Buscar al profesor
+        ProfesorORM profesor = profesorJPA.findById(asignaturaDTO.profesorId())
+                .orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
+
+        // Convertir la lista de IDs en una lista de EstudianteORM
+        List<EstudianteORM> estudiantes = asignaturaDTO.estudiantes().stream()
+                .map(id -> estudianteJPA.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Estudiante no encontrado con ID: " + id)))
+                .toList();
+
+        // Crear la asignatura con los estudiantes
+        AsignaturaORM asignatura = asignaturaService.guardarAsignatura(
+                asignaturaDTO.nombre(),
+                asignaturaDTO.descripcion(),
+                asignaturaDTO.creditos(),
+                profesor,
+                estudiantes
+        );
+
+        return "Asignatura " + asignatura.getNombre() + " guardada con estudiantes";
     }
 
-    @GetMapping(path = "/asignaturas-bd")
-    public List<AsignaturaORM> obtenerAsignaturasBD() {
+    @GetMapping(path = "/asignaturas")
+    public List<AsignaturaORM> obtenerAsignaturas() {
         return asignaturaJPA.findAll();
     }
 
-    @PutMapping(path = "/asignatura/{id}")
-    public String actualizarAsignatura(@PathVariable Long id, @RequestBody AsignaturaDTO asignatura) {
-        AsignaturaORM asignaturaExistente = asignaturaJPA.findById(id).orElse(null);
-        if (asignaturaExistente != null) {
-            asignaturaExistente.setNombre(asignatura.nombre());
-            asignaturaExistente.setCreditos(asignatura.creditos());
-
-            // Guardar los cambios en la base de datos
-            asignaturaJPA.save(asignaturaExistente);
-
-            return "Asignatura actualizada correctamente";
-        } else {
-            return "Asignatura no encontrada";
-        }
-    }
-
-    @GetMapping(path = "/asignaturas/{id}")
+    @GetMapping(path = "/asignatura/{id}")
     public AsignaturaDTO obtenerAsignatura(@PathVariable Long id) {
-        return asignaturaJPA.findById(id)
-                .map(asignaturaORM -> new AsignaturaDTO(
-                        asignaturaORM.getId(),
-                        asignaturaORM.getNombre(),
-                        asignaturaORM.getCreditos()
-                ))
-                .orElse(null);
+        AsignaturaORM asignatura = asignaturaJPA.findById(id)
+                .orElseThrow(() -> new RuntimeException("Asignatura no encontrada"));
+
+        return new AsignaturaDTO(
+                asignatura.getId(),
+                asignatura.getNombre(),
+                asignatura.getDescripcion(),
+                asignatura.getCreditos(),
+                asignatura.getProfesor().getId(),
+                asignatura.getEstudiantes().stream().map(EstudianteORM::getId).toList()
+        );
     }
 
-    @DeleteMapping(path = "/asignaturaEliminada/{id}")
+    @DeleteMapping(path = "/asignatura/{id}")
     public String eliminarAsignatura(@PathVariable Long id) {
         asignaturaJPA.deleteById(id);
         return "Asignatura eliminada";
