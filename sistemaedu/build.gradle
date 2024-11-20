@@ -31,6 +31,7 @@ dependencies {
 	implementation 'org.postgresql:postgresql:42.6.0' // Verifica la versión y actualízala si es necesario
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'com.h2database:h2:2.2.222'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
