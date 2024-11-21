@@ -23,53 +23,53 @@ public class EstudianteController {
 
     @PostMapping(path = &quot;/estudiante&quot;)
     public String guardarEstudiante(@RequestBody EstudianteDTO estudiante) {
-<span class="fc" id="L26">        estudiantes.add(estudiante);</span>
-<span class="fc" id="L27">        estudianteService.guardarEstudiante(estudiante.codigo(), estudiante.nombre(),estudiante.genero(), estudiante.edad(),estudiante.carrera(), estudiante.email(), estudiante.semestre(), estudiante.promedio());</span>
-<span class="fc" id="L28">        return &quot;Estudiante guardado&quot;;</span>
+<span class="nc" id="L26">        estudiantes.add(estudiante);</span>
+<span class="nc" id="L27">        estudianteService.guardarEstudiante(estudiante.codigo(), estudiante.nombre(),estudiante.genero(), estudiante.edad(),estudiante.carrera(), estudiante.email(), estudiante.semestre(), estudiante.promedio());</span>
+<span class="nc" id="L28">        return &quot;Estudiante guardado&quot;;</span>
     }
     @GetMapping(path = &quot;/estudiantes-bd&quot;)
     public List&lt;EstudianteORM&gt; obtenerEstudiantesBD() {
-<span class="fc" id="L32">        return estudianteJPA.findAll();</span>
+<span class="nc" id="L32">        return estudianteJPA.findAll();</span>
     }
 
     @GetMapping(path = &quot;/estudiantes/{id}&quot;)
     public EstudianteDTO obtenerEstudiante(@PathVariable Long id) {
-<span class="fc" id="L37">        return estudianteJPA.findById(id)</span>
-<span class="fc" id="L38">                .map(estudianteORM -&gt; new EstudianteDTO(estudianteORM.getId(), estudianteORM.getNombre(), estudianteORM.getGenero(), estudianteORM.getEdad(), estudianteORM.getCarrera(), estudianteORM.getEmail(), estudianteORM.getSemestre(), estudianteORM.getPromedio()))</span>
-<span class="fc" id="L39">                .orElse(null);</span>
+<span class="nc" id="L37">        return estudianteJPA.findById(id)</span>
+<span class="nc" id="L38">                .map(estudianteORM -&gt; new EstudianteDTO(estudianteORM.getId(), estudianteORM.getNombre(), estudianteORM.getGenero(), estudianteORM.getEdad(), estudianteORM.getCarrera(), estudianteORM.getEmail(), estudianteORM.getSemestre(), estudianteORM.getPromedio()))</span>
+<span class="nc" id="L39">                .orElse(null);</span>
     }
 
 
     @PutMapping(path = &quot;/estudiante/{id}&quot;)
     public String actualizarEstudiante(@PathVariable Long id, @RequestBody EstudianteDTO estudianteDTO) {
-<span class="fc" id="L45">        EstudianteORM estudianteExistente = estudianteJPA.findById(id).orElse(null);</span>
+<span class="nc" id="L45">        EstudianteORM estudianteExistente = estudianteJPA.findById(id).orElse(null);</span>
 
-<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (estudianteExistente != null) {</span>
-<span class="fc" id="L48">            boolean resultado = estudianteService.actualizarEstudiante(</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (estudianteExistente != null) {</span>
+<span class="nc" id="L48">            boolean resultado = estudianteService.actualizarEstudiante(</span>
                     id,
-<span class="fc" id="L50">                    estudianteDTO.nombre(),</span>
-<span class="fc" id="L51">                    estudianteDTO.genero(),</span>
-<span class="fc" id="L52">                    estudianteDTO.edad(),</span>
-<span class="fc" id="L53">                    estudianteDTO.carrera(),</span>
-<span class="fc" id="L54">                    estudianteDTO.email(),</span>
-<span class="fc" id="L55">                    estudianteDTO.semestre(),</span>
-<span class="fc" id="L56">                    estudianteDTO.promedio()</span>
+<span class="nc" id="L50">                    estudianteDTO.nombre(),</span>
+<span class="nc" id="L51">                    estudianteDTO.genero(),</span>
+<span class="nc" id="L52">                    estudianteDTO.edad(),</span>
+<span class="nc" id="L53">                    estudianteDTO.carrera(),</span>
+<span class="nc" id="L54">                    estudianteDTO.email(),</span>
+<span class="nc" id="L55">                    estudianteDTO.semestre(),</span>
+<span class="nc" id="L56">                    estudianteDTO.promedio()</span>
             );
 
-<span class="pc bpc" id="L59" title="1 of 2 branches missed.">            if (resultado) {</span>
-<span class="fc" id="L60">                return &quot;Estudiante actualizado correctamente&quot;;</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            if (resultado) {</span>
+<span class="nc" id="L60">                return &quot;Estudiante actualizado correctamente&quot;;</span>
             } else {
 <span class="nc" id="L62">                return &quot;No se pudieron realizar cambios en el estudiante&quot;;</span>
             }
         } else {
-<span class="fc" id="L65">            return &quot;Estudiante no encontrado&quot;;</span>
+<span class="nc" id="L65">            return &quot;Estudiante no encontrado&quot;;</span>
         }
     }
 
     @DeleteMapping(path = &quot;/estudianteEliminado/{id}&quot;)
     public String eliminarEstudiante(@PathVariable Long id) {
-<span class="fc" id="L71">        estudianteJPA.deleteById(id);</span>
-<span class="fc" id="L72">        return &quot;Estudiante eliminado&quot;;</span>
+<span class="nc" id="L71">        estudianteJPA.deleteById(id);</span>
+<span class="nc" id="L72">        return &quot;Estudiante eliminado&quot;;</span>
     }
 
 }
