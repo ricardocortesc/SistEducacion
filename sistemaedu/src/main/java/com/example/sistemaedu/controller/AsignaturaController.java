@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin("https://sistemaedufront.onrender.com")
+@CrossOrigin("http://localhost:3000")
 public class AsignaturaController {
 
     private final AsignaturaJPA asignaturaJPA;
@@ -67,7 +67,7 @@ public class AsignaturaController {
         );
     }
 
-    @DeleteMapping(path = "/asignatura/{id}")
+    @DeleteMapping(path = "/asignaturaEliminada/{id}")
     public String eliminarAsignatura(@PathVariable Long id) {
         asignaturaJPA.deleteById(id);
         return "Asignatura eliminada";

@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin("https://sistemaedufront.onrender.com")
+@CrossOrigin("http://localhost:3000")
 public class ProfesorController {
 
     private ProfesorJPA profesorJPA;
