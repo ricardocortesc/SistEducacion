@@ -7,10 +7,13 @@ import com.example.sistemaedu.bd.ORM.AsignaturaORM;
 import com.example.sistemaedu.bd.ORM.EstudianteORM;
 import com.example.sistemaedu.bd.ORM.ProfesorORM;
 import com.example.sistemaedu.controller.DTO.AsignaturaDTO;
+import com.example.sistemaedu.eventos.AssignmentEvent;
+import com.example.sistemaedu.eventos.RabbitMQProducer;
 import com.example.sistemaedu.logica.AsignaturaService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -22,6 +25,7 @@ public class AsignaturaController {
     private final ProfesorJPA profesorJPA;
     private final EstudianteJPA estudianteJPA;
     private final AsignaturaService asignaturaService;
+    private final RabbitMQProducer rabbitMQProducer;
 
     @PostMapping(path = "/asignatura")
     public String guardarAsignatura(@RequestBody AsignaturaDTO asignaturaDTO) {
@@ -43,6 +47,17 @@ public class AsignaturaController {
                 profesor,
                 estudiantes
         );
+        estudiantes.forEach(estudiante -> {
+            AssignmentEvent event = new AssignmentEvent(
+                    asignatura.getNombre(),
+                    asignatura.getId(),
+                    estudiante.getNombre(),
+                    estudiante.getId(),
+                    profesor.getNombre(),
+                    LocalDateTime.now()
+            );
+            rabbitMQProducer.sendAssignmentEvent(event);
+        });
 
         return "Asignatura " + asignatura.getNombre() + " guardada con estudiantes";
     }

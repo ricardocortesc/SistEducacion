@@ -32,6 +32,8 @@ public class EstudianteController {
         return estudianteJPA.findAll();
     }
 
+
+
     @GetMapping(path = "/estudiantes/{id}")
     public EstudianteDTO obtenerEstudiante(@PathVariable Long id) {
         return estudianteJPA.findById(id)
@@ -72,4 +74,8 @@ public class EstudianteController {
         return "Estudiante eliminado";
     }
 
+    @GetMapping("/asignacion/{estudiante}")
+    public String atenderEstudiante(@PathVariable String estudiante) {
+        return  " Estudiante entró a la cola.";
+    }
 }
