@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RabbitMQConsumer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sistemaedu</a> &gt; <a href="index.source.html" class="el_package">com.example.sistemaedu.eventos</a> &gt; <span class="el_source">RabbitMQConsumer.java</span></div><h1>RabbitMQConsumer.java</h1><pre class="source lang-java linenums">package com.example.sistemaedu.eventos;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
+
+@Service
+<span class="fc" id="L7">public class RabbitMQConsumer {</span>
+
+    @RabbitListener(queues = &quot;course.assignment.events&quot;)
+    public void handleAssignmentEvent(AssignmentEvent event) {
+        // Mostrar el evento recibido
+<span class="nc" id="L12">        System.out.println(&quot;Evento recibido: &quot; + event);</span>
+
+        // Generar el mensaje de notificaciÃ³n
+<span class="nc" id="L15">        String notificationMessage = String.format(&quot;Notificacion: El estudiante %s ha sido asignado al curso %s.&quot;,</span>
+<span class="nc" id="L16">                event.getStudentName(), event.getCourseName());</span>
+
+        // LÃ³gica: Mostrar detalles del evento y la notificaciÃ³n
+<span class="nc" id="L19">        System.out.println(&quot;Estudiante asignado: &quot; + event.getStudentName());</span>
+<span class="nc" id="L20">        System.out.println(&quot;Curso asignado: &quot; + event.getCourseName());</span>
+<span class="nc" id="L21">        System.out.println(&quot;Profesor titular: &quot; + event.getProfessorName());</span>
+<span class="nc" id="L22">        System.out.println(&quot;Mensaje de notificacion: &quot; + notificationMessage);</span>
+
+        // AquÃ­ puedes agregar mÃ¡s lÃ³gica si deseas procesar la notificaciÃ³n de alguna otra forma
+<span class="nc" id="L25">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

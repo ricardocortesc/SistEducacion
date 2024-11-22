@@ -56,6 +56,7 @@ jacocoTestReport {
 							'com/example/sistemaedu/controller/DTO/**',
 							'com/example/sistemaedu/bd/ORM/**',
 							'com/example/sistemaedu/bd/JPA/**',
+							'com/example/sistemaedu/eventos/**'
 					])
 				})
 		)

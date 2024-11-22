@@ -59,7 +59,7 @@ public class AsignaturaController {
             rabbitMQProducer.sendAssignmentEvent(event);
         });
 
-        return "Asignatura " + asignatura.getNombre() + " guardada con estudiantes";
+        return "Asignatura guardada con estudiantes";
     }
 
     @GetMapping(path = "/asignaturas")
