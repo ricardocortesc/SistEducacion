@@ -38,9 +38,36 @@ services:
       - postgresqll:/var/lib/postgresql
       - postgresql_dataa:/var/lib/postgresql/data
 
+  # Servicio RabbitMQ
+  rabbitmq:
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"   # Puerto AMQP para la comunicación de mensajes
+      - "15672:15672" # Puerto HTTP para la interfaz de administración
+    networks:
+      - sonarnet
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  # Tu aplicación Java
+  app:
+    build: .
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq   # Usar el nombre del servicio RabbitMQ
+    ports:
+      - "8083:8083"   # Puerto de tu aplicación Java (ajústalo según sea necesario)
+    networks:
+      - sonarnet
+    restart: always
 
 networks:
   sonarnet:
+    driver: bridge
 
 volumes:
   sonarqube_conff:
@@ -49,4 +76,5 @@ volumes:
   sonarqube_bundled-pluginss:
   postgresqll:
   postgresql_dataa:
+  rabbitmq_data:    # Volumen persistente para RabbitMQ
   jenkins_home:  # Volumen para Jenkins

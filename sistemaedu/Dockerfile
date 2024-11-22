@@ -1,37 +1,28 @@
+# Etapa de construcción usando Gradle y JDK 17
 FROM gradle:8.8.0-jdk17 AS build
 
 WORKDIR /app
 
-# Copiar los archivos necesarios para construir el proyecto
 COPY sistemaedu/build.gradle sistemaedu/settings.gradle /app/
+
 COPY sistemaedu/src /app/src
 
-# Construir el JAR de la aplicación
+# Ejecuta la construcción con Gradle
 RUN gradle assemble --no-daemon
 
-# Etapa final: Crear un contenedor con la aplicación y RabbitMQ
+# Etapa de ejecución usando JDK 17
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-# Instalar RabbitMQ y sus dependencias
-RUN apt-get update && \
-    apt-get install -y sudo curl gnupg && \
-    curl -fsSL https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add - && \
-    echo "deb https://packages.erlang-solutions.com/ubuntu focal contrib" | sudo tee /etc/apt/sources.list.d/erlang.list && \
-    apt-get update && \
-    apt-get install -y erlang rabbitmq-server && \
-    apt-get clean
+# Instalar sudo (si es necesario) y dependencias adicionales
+RUN apt-get update && apt-get install -y sudo
 
-# Habilitar el plugin de administración de RabbitMQ
-RUN rabbitmq-plugins enable rabbitmq_management
-
-# Copiar el JAR de la aplicación desde la etapa de construcción
+# Copia el archivo .jar de la etapa de construcción
 COPY --from=build /app/build/libs/sistemaedu-0.0.1-SNAPSHOT.jar ./app.jar
 
-# Exponer los puertos necesarios
-EXPOSE 80 5672 15672
+# Exponer puertos si es necesario (por ejemplo, para un servicio HTTP)
+EXPOSE 8080
 
-# Iniciar RabbitMQ y luego la aplicación
-CMD service rabbitmq-server start && \
-    java -jar app.jar
+# Configurar el comando de inicio
+ENTRYPOINT ["java", "-jar", "app.jar"]
