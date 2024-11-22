@@ -2,9 +2,7 @@ FROM gradle:8.8.0-jdk17 AS build
 
 WORKDIR /app
 
-COPY build.gradle settings.gradle /app/
-
-COPY sistemaedu/src /app/src
+COPY . .
 
 RUN gradle assemble --no-daemon
 
