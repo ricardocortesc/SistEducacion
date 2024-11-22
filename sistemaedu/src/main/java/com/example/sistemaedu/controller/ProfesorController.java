@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://sistema-edu-front.vercel.app")
 public class ProfesorController {
 
     private ProfesorJPA profesorJPA;
