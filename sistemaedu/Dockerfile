@@ -1,27 +1,21 @@
-# Fase de construcción (Build stage)
-FROM openjdk:17-slim AS build
+FROM gradle:8.8.0-jdk17 AS build
 
-# Instalar dependencias necesarias para la compilación
-RUN apt-get update && apt-get install -y \
-    git \
-    wget
+WORKDIR /app
 
-# Copiar el código fuente al contenedor
-COPY . .
+COPY build.gradle settings.gradle /app/
 
-# Dar permisos de ejecución al archivo gradlew
-RUN chmod +x ./gradlew
+COPY sistemaedu/src /app/src
 
-# Ejecutar Gradle para generar el archivo .jar
-RUN ./gradlew bootJar --no-daemon
+RUN gradle assemble --no-daemon
 
-# Fase de ejecución (Run stage)
-FROM openjdk:17-slim
+FROM openjdk:17-jdk-slim
 
-# Exponer el puerto donde corre la aplicación
-EXPOSE 8080
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y sudo
 
 COPY --from=build /app/build/libs/sistemaedu-0.0.1-SNAPSHOT.jar ./app.jar
 
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+EXPOSE 80
+
+ENTRYPOINT ["java" ,"-jar", "app.jar"]
