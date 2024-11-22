@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">3</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">2</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.095s</div>
+<div class="counter">1.219s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">33%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,55 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="When_eliminarAsignatura_Then_asignaturaEliminada()"></a>
+<h3 class="failures">When_eliminarAsignatura_Then_asignaturaEliminada()</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: expected: &lt;null&gt; but was: &lt;asignaturaEliminada&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+	at app//org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:30)
+	at app//org.junit.jupiter.api.Assertions.assertNull(Assertions.java:279)
+	at app//com.example.sistemaedu.integration.AsignaturaIntegrationTest.When_eliminarAsignatura_Then_asignaturaEliminada(AsignaturaIntegrationTest.java:116)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="When_guardarAsignatura_Then_returnAsignaturaGuardada()"></a>
+<h3 class="failures">When_guardarAsignatura_Then_returnAsignaturaGuardada()</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;2&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at app//com.example.sistemaedu.integration.AsignaturaIntegrationTest.When_guardarAsignatura_Then_returnAsignaturaGuardada(AsignaturaIntegrationTest.java:67)
+	at java.base@17.0.11/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.11/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,32 +120,27 @@
 </tr>
 </thead>
 <tr>
-<td class="success">When_actualizarAsignatura_Then_returnAsignaturaActualizada()</td>
-<td class="success">0.053s</td>
-<td class="success">passed</td>
+<td class="failures">When_eliminarAsignatura_Then_asignaturaEliminada()</td>
+<td class="failures">0.768s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
-<td class="success">When_eliminarAsignatura_Then_returnAsignaturaEliminada()</td>
-<td class="success">0.802s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">When_guardarAsignatura_Then_returnAsignaturaGuardada()</td>
-<td class="success">0.199s</td>
-<td class="success">passed</td>
+<td class="failures">When_guardarAsignatura_Then_returnAsignaturaGuardada()</td>
+<td class="failures">0.177s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">When_obtenerAsignaturaPorId_Then_returnAsignatura()</td>
-<td class="success">0.041s</td>
+<td class="success">0.274s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2024-11-18T21:58:58.646-05:00  INFO 21148 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.AsignaturaIntegrationTest]: AsignaturaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-11-18T21:58:58.659-05:00  INFO 21148 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.AsignaturaIntegrationTest
+<pre>2024-11-21T19:40:06.725-05:00  INFO 5788 --- [sistemaedu] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.sistemaedu.integration.AsignaturaIntegrationTest]: AsignaturaIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-11-21T19:40:06.728-05:00  INFO 5788 --- [sistemaedu] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.sistemaedu.SistemaeduApplication for test class com.example.sistemaedu.integration.AsignaturaIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -114,30 +151,107 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-11-18T21:58:58.713-05:00  INFO 21148 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Starting AsignaturaIntegrationTest using Java 17.0.11 with PID 21148 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
-2024-11-18T21:58:58.713-05:00  INFO 21148 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : The following 1 profile is active: &quot;test&quot;
-2024-11-18T21:58:59.167-05:00  INFO 21148 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-11-18T21:58:59.188-05:00  INFO 21148 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
-2024-11-18T21:58:59.552-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2024-11-18T21:58:59.576-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-11-18T21:58:59.577-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-11-18T21:58:59.725-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-11-18T21:58:59.728-05:00  INFO 21148 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1010 ms
-2024-11-18T21:58:59.913-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-11-18T21:58:59.918-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-11-18T21:58:59.933-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-11-18T21:58:59.934-05:00  INFO 21148 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2024-11-18T21:59:00.438-05:00  INFO 21148 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2024-11-18T21:59:00.444-05:00  INFO 21148 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2024-11-18T21:59:00.471-05:00  WARN 21148 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-11-18T21:59:00.629-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-11-18T21:59:00.702-05:00  INFO 21148 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-11-18T21:59:00.779-05:00  WARN 21148 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-11-18T21:59:00.950-05:00  INFO 21148 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 49878 (http) with context path '/'
-2024-11-18T21:59:00.956-05:00  INFO 21148 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Started AsignaturaIntegrationTest in 2.293 seconds (process running for 18.444)
-2024-11-18T21:59:01.245-05:00  INFO 21148 --- [sistemaedu] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-11-18T21:59:01.246-05:00  INFO 21148 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-11-18T21:59:01.248-05:00  INFO 21148 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-21T19:40:06.766-05:00  INFO 5788 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Starting AsignaturaIntegrationTest using Java 17.0.11 with PID 5788 (started by mfeom in C:\Diseño de Software\SistEducacion\sistemaedu)
+2024-11-21T19:40:06.767-05:00  INFO 5788 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : The following 1 profile is active: &quot;test&quot;
+2024-11-21T19:40:06.981-05:00  INFO 5788 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-21T19:40:06.998-05:00  INFO 5788 --- [sistemaedu] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.
+2024-11-21T19:40:07.263-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2024-11-21T19:40:07.280-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-21T19:40:07.280-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-21T19:40:07.382-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-21T19:40:07.382-05:00  INFO 5788 --- [sistemaedu] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 614 ms
+2024-11-21T19:40:07.506-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-21T19:40:07.509-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-21T19:40:07.518-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-21T19:40:07.518-05:00  INFO 5788 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-11-21T19:40:07.954-05:00  INFO 5788 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-11-21T19:40:07.954-05:00  INFO 5788 --- [sistemaedu] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-11-21T19:40:07.967-05:00  WARN 5788 --- [sistemaedu] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-11-21T19:40:08.116-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-21T19:40:08.206-05:00  INFO 5788 --- [sistemaedu] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-21T19:40:08.306-05:00  WARN 5788 --- [sistemaedu] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-21T19:40:08.523-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 60135 (http) with context path '/'
+2024-11-21T19:40:08.525-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2024-11-21T19:40:08.536-05:00  INFO 5788 --- [sistemaedu] [    Test worker] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#69026c45:0/SimpleConnection@1955a811 [delegate=amqp://guest@127.0.0.1:5672/, localPort=60136]
+2024-11-21T19:40:08.557-05:00  INFO 5788 --- [sistemaedu] [    Test worker] c.e.s.i.AsignaturaIntegrationTest        : Started AsignaturaIntegrationTest in 1.829 seconds (process running for 12.53)
+2024-11-21T19:40:09.013-05:00  INFO 5788 --- [sistemaedu] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-21T19:40:09.013-05:00  INFO 5788 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-21T19:40:09.013-05:00  INFO 5788 --- [sistemaedu] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-21T19:40:09.218-05:00 ERROR 5788 --- [sistemaedu] [o-auto-1-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Asignatura no encontrada] with root cause
+
+java.lang.RuntimeException: Asignatura no encontrada
+	at com.example.sistemaedu.controller.AsignaturaController.lambda$obtenerAsignatura$4(AsignaturaController.java:73) ~[main/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.example.sistemaedu.controller.AsignaturaController.obtenerAsignatura(AsignaturaController.java:73) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+Evento enviado: AssignmentEvent{courseName='Física', courseId=1, studentName='Juan Pérez', studentId=1, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.553633900}
+Evento recibido: AssignmentEvent{courseName='Física', courseId=1, studentName='Juan Pérez', studentId=1, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.553633900}
+Estudiante asignado: Juan Pérez
+Curso asignado: Física
+Profesor titular: Carlos López
+Mensaje de notificacion: Notificacion: El estudiante Juan Pérez ha sido asignado al curso Física.
+Evento enviado: AssignmentEvent{courseName='Matemáticas', courseId=2, studentName='Juan Pérez', studentId=1, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.707806500}
+Evento enviado: AssignmentEvent{courseName='Matemáticas', courseId=2, studentName='Juan Ares', studentId=2, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.709848200}
+Evento recibido: AssignmentEvent{courseName='Matemáticas', courseId=2, studentName='Juan Pérez', studentId=1, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.707806500}
+Estudiante asignado: Juan Pérez
+Curso asignado: Matemáticas
+Profesor titular: Carlos López
+Evento recibido: AssignmentEvent{courseName='Matemáticas', courseId=2, studentName='Juan Ares', studentId=2, professorName='Carlos López', assignmentDate=2024-11-21T19:40:09.709848200}
+Mensaje de notificacion: Notificacion: El estudiante Juan Pérez ha sido asignado al curso Matemáticas.
+Estudiante asignado: Juan Ares
+Curso asignado: Matemáticas
+Profesor titular: Carlos López
+Mensaje de notificacion: Notificacion: El estudiante Juan Ares ha sido asignado al curso Matemáticas.
 </pre>
 </span>
 </div>
@@ -149,7 +263,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 18 nov 2024 21:59:05</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 21 nov 2024 19:40:14</p>
 </div>
 </div>
 </body>
